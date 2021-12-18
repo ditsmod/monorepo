@@ -41,7 +41,7 @@ export class ValidationExtension implements edk.Extension<void> {
           });
         }
 
-        const { requestBody } = validationRouteMeta.operationObject;
+        const requestBody = validationRouteMeta.operationObject?.requestBody;
         if (
           requestBody &&
           !isReferenceObject(requestBody) &&

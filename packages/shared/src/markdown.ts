@@ -4,7 +4,7 @@ import { Marked, Renderer, escape } from '@ts-stack/markdown';
 export { Marked };
 
 class MyRenderer extends Renderer {
-  image(href: string, title: string, text: string): string {
+  override image(href: string, title: string, text: string): string {
     let out = '<img src="' + href + '" alt="' + text + '"';
 
     if (title) {
@@ -15,7 +15,7 @@ class MyRenderer extends Renderer {
     return out;
   }
 
-  heading(text: string, level: number, raw: string) {
+  override heading(text: string, level: number, raw: string) {
     // The first level of header is only in the title of the publication, it is not allowed here.
     if (level == 1) {
       level = 2;
@@ -35,7 +35,7 @@ class MyRenderer extends Renderer {
     return `<h${level} id="${id}">${text}</h${level}>`;
   }
 
-  table(header: string, body: string) {
+  override table(header: string, body: string) {
     return (
       '<table class="table table-bordered">\n' +
       +'<thead>\n' +
@@ -48,7 +48,7 @@ class MyRenderer extends Renderer {
     );
   }
 
-  code(code: string, lang: string, escaped?: boolean) {
+  override code(code: string, lang: string, escaped?: boolean) {
     if (this.options.highlight) {
       const out = this.options.highlight(code, lang);
       if (out != null && out !== code) {
@@ -71,7 +71,7 @@ class MyRenderer extends Renderer {
     );
   }
 
-  link(href: string, title: string, text: string) {
+  override link(href: string, title: string, text: string) {
     if (this.options.sanitize) {
       let prot = '';
       try {

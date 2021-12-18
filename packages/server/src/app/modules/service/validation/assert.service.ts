@@ -2,7 +2,7 @@ import { Injectable } from '@ts-stack/di';
 
 import { CustomError } from '@service/error-handler/custom-error';
 import { ServerMsg } from '@service/msg/server-msg';
-import { AppConfigService } from '@service/config/config.service';
+import { AppConfigService } from '@service/app-config/config.service';
 
 @Injectable()
 export class AssertService {

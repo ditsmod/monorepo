@@ -1,6 +1,6 @@
 import { Column } from '@ditsmod/openapi';
 
-import { AppConfigService } from '@service/config/config.service';
+import { AppConfigService } from '@service/app-config/config.service';
 import { ServerMsg } from '@service/msg/server-msg';
 import { VALIDATION_ARGS } from '@service/validation/types';
 

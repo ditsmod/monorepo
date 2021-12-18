@@ -1,7 +1,7 @@
 import { AssertService } from './assert.service';
 
 import { ServerMsg } from '@service/msg/server-msg';
-import { AppConfigService } from '@service/config/config.service';
+import { AppConfigService } from '@service/app-config/config.service';
 
 describe(`ParamsService`, () => {
   const serverMsg = new ServerMsg();

@@ -1,3 +1,4 @@
+import { format } from 'util';
 import { Injectable } from '@ts-stack/di';
 import { Logger, LoggerMethod, Status, Req, Res, ControllerErrorHandler, getStatusText } from '@ditsmod/core';
 import { ChainError } from '@ts-stack/chain-error';
@@ -18,7 +19,13 @@ export class ErrorHandler implements ControllerErrorHandler {
     const req = this.req;
     let message = err.message;
     if (err instanceof ChainError) {
-      message = err.message = err.info.msg1 || getStatusText(err.info.status!);
+      const template = err.info.msg1 || '';
+      if (template.includes('%s')){
+        message = format(template, ...(err.info.args1 || []));
+      } else {
+        message = format(template);
+      }
+      err.message = message;
       const { level, status } = err.info;
       const levelName = Level[level!] as LevelNames;
       delete err.info.level;
