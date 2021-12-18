@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noImplicitOverride": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@classes/*": ["./src/app/classes/*", "./dist/app/classes/*"],
+      "@service/*": ["./src/app/modules/service/*", "./dist/app/modules/service/*"],
+      "@routed/*": ["./src/app/modules/routed/*", "./dist/app/modules/routed/*"],
+      "@services-per-app/*": ["./src/app/services-per-app/*", "./dist/app/services-per-app/*"],
+      "@models/*": ["./src/app/models/*", "./dist/app/models/*"],
+      "@shared": ["../shared/src", "../shared/dist/server"],
+      "@shared/*": ["../shared/src/*", "../shared/dist/server/*"],
+    }
+  },
+  "include": ["src"],
+  "files": [],
+  "references": [{ "path": "../shared" }]
+}
