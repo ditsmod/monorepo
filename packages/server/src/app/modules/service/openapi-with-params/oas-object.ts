@@ -17,8 +17,8 @@ export const oasObject: XOasObject = {
       name: 'demo',
       description:
         'OpenAPI specefication routes. This routes used `@OasRoute()` decorator ' +
-        'imported from @ditsmod/openapi. Here the configuration and work ' +
-        'with controllers is demonstrated.',
+        'imported from @ditsmod/openapi. Setting for this routes you can find in ' +
+        '`packages/server/src/app/modules/service/openapi-with-params/oas-object.ts`.',
     },
     {
       name: 'OasDocs',

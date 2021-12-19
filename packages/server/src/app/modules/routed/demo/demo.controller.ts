@@ -4,7 +4,7 @@ import { getContent, getParams, OasRoute, Parameters } from '@ditsmod/openapi';
 
 import { BasicGuard } from '@service/auth/basic.guard';
 import { BearerGuard } from '@service/auth/bearer.guard';
-import { Params } from '@models/params';
+import { Params, RequestBody1, Response1 } from '@models/params';
 
 @Controller()
 export class DemoController {
@@ -37,8 +37,10 @@ export class DemoController {
     tags: ['demo'],
     description: 'This is controller with parameter in query and with TypeScript model',
     parameters: new Parameters()
-      .required('query', Params, 'userAge').describe('Here description for userAge')
-      .optional('query', Params, 'userName').describe('Here description for userName')
+      .required('query', Params, 'userAge')
+      .describe('Here description for userAge')
+      .optional('query', Params, 'userName')
+      .describe('Here description for userName')
       .getParams(),
     responses: {
       [Status.OK]: {
@@ -47,7 +49,7 @@ export class DemoController {
       },
     },
   })
-  async showWhoIam() {
+  async showResource1() {
     const age = this.req.queryParams.userAge as Params['userAge'];
     let msg = `You are ${age} years old`;
     const userName = this.req.queryParams.userName as Params['userName'];
@@ -57,9 +59,35 @@ export class DemoController {
     this.res.send(`${msg}.`);
   }
 
-  @OasRoute('GET', 'token', [], {
+  @OasRoute('POST', 'resource2', [], {
     tags: ['demo'],
-    description: 'This OAS route used to get token for bearer guard.',
+    description: 'This is controller with TypeScript requestBody model',
+    requestBody: {
+      description: 'Опис requestBody',
+      content: getContent({ mediaType: '*/*', model: RequestBody1 }),
+    },
+    responses: {
+      [Status.OK]: {
+        description: 'Опис контенту із даним статусом',
+        content: getContent({ mediaType: '*/*', model: Response1 }),
+      },
+    },
+  })
+  async showResource2() {
+    const age = this.req.queryParams.userAge as Params['userAge'];
+    let msg = `You are ${age} years old`;
+    const userName = this.req.queryParams.userName as Params['userName'];
+    if (userName) {
+      msg += ` and your name is ${userName}`;
+    }
+    this.res.send(`${msg}.`);
+  }
+
+  @OasRoute('GET', 'jwt-token', [], {
+    tags: ['demo'],
+    description:
+      'This OAS route used to get token for bearer guard. Setting for ' +
+      'JWT you can find in `packages/server/src/app/modules/service/auth/auth.module.ts`',
     responses: {
       [Status.OK]: {
         description: `Returns token for bearer guard`,
@@ -74,7 +102,7 @@ export class DemoController {
 
   @OasRoute('GET', 'bearer', [BearerGuard], {
     tags: ['demo'],
-    description: 'This guard used bearer token for auth.',
+    description: 'This route with guard used bearer token for auth.',
   })
   async bearer() {
     this.res.send('Hello, admin!');
@@ -82,7 +110,7 @@ export class DemoController {
 
   @OasRoute('GET', 'basic', [BasicGuard], {
     tags: ['demo'],
-    description: 'This guard used basic auth.',
+    description: 'This route with guard used basic auth.',
   })
   async basic() {
     this.res.send('Hello, admin!');
