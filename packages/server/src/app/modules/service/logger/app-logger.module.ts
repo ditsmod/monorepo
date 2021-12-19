@@ -15,4 +15,4 @@ loggerConfig.level = level;
     { provide: LoggerOptionsToken, useValue: { name: 'ditsmod-logs' } as LoggerOptions1 },
   ],
 })
-export class LoggerModule {}
+export class AppLoggerModule {}

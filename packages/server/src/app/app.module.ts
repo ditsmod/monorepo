@@ -8,12 +8,12 @@ import { ValidationModule } from '@service/validation/validation.module';
 import { ErrorHandlerModule } from '@service/error-handler/error-handler.module';
 import { UtilModule } from '@service/util/util.module';
 import { BodyParserModule } from '@ditsmod/body-parser';
-import { LoggerModule } from '@service/logger/logger.module';
 import { ConfigModule } from '@service/app-config/config.module';
 import { MsgModule } from '@service/msg/msg.module';
 import { AuthModule } from '@service/auth/auth.module';
 import { openapiModuleWithParams } from '@service/openapi-with-params/openapi-with-params.module';
 import { DemoModule } from '@routed/demo/demo.module';
+import { AppLoggerModule } from '@service/logger/app-logger.module';
 
 @RootModule({
   httpModule: http,
@@ -27,14 +27,14 @@ import { DemoModule } from '@routed/demo/demo.module';
     AuthModule,
     MysqlModule,
     openapiModuleWithParams,
-    // LoggerModule,
+    AppLoggerModule,
     ConfigModule,
     MsgModule,
   ],
   controllers: [],
   resolvedCollisionsPerApp: [
-    // [Logger, LoggerModule],
-    // [LoggerConfig, LoggerModule],
+    [Logger, AppLoggerModule],
+    [LoggerConfig, AppLoggerModule],
   ],
   resolvedCollisionsPerReq: [[ControllerErrorHandler, ErrorHandlerModule]],
   exports: [
