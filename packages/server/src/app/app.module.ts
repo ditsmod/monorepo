@@ -22,7 +22,7 @@ import { AppLoggerModule } from '@service/logger/app-logger.module';
   listenOptions: { port: 3000, host: 'localhost' },
   prefixPerApp: 'api',
   imports: [
-    DemoModule,
+    { prefix: 'demo', module: DemoModule },
     RouterModule,
     AuthModule,
     MysqlModule,
