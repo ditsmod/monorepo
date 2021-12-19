@@ -1,4 +1,4 @@
 import { InjectionToken } from '@ts-stack/di';
 import { LoggerOptions } from '@ditsmod/logger';
 
-export const LoggerOptionsToken = new InjectionToken<LoggerOptions>('LoggerOptionsToken');
+export const LOGGER_OPTIONS = new InjectionToken<LoggerOptions>('LOGGER_OPTIONS');

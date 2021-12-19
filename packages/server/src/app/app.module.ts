@@ -1,7 +1,6 @@
 import * as http from 'http';
 import { ControllerErrorHandler, Logger, LoggerConfig, RootModule } from '@ditsmod/core';
 import { RouterModule } from '@ditsmod/router';
-import { SessionCookieOptions } from '@ditsmod/session-cookie';
 
 import { MysqlModule } from '@service/mysql/mysql.module';
 import { ValidationModule } from '@service/validation/validation.module';
@@ -27,14 +26,14 @@ import { AppLoggerModule } from '@service/logger/app-logger.module';
     AuthModule,
     MysqlModule,
     openapiModuleWithParams,
-    AppLoggerModule,
+    // AppLoggerModule, // Uncomment this to allow write logs with AppLoggerModule
     ConfigModule,
     MsgModule,
   ],
   controllers: [],
   resolvedCollisionsPerApp: [
-    [Logger, AppLoggerModule],
-    [LoggerConfig, AppLoggerModule],
+    // [Logger, AppLoggerModule], // Uncomment this to allow write logs with AppLoggerModule
+    // [LoggerConfig, AppLoggerModule], // Uncomment this to allow write logs with AppLoggerModule
   ],
   resolvedCollisionsPerReq: [[ControllerErrorHandler, ErrorHandlerModule]],
   exports: [

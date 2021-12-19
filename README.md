@@ -18,6 +18,19 @@ npm install -g @angular/cli
 ng new packages/my-angular-application
 ```
 
+## Start the web server in develop mode
+
+```bash
+yarn start
+```
+
+## Start the web server in production mode
+
+```bash
+yarn build
+yarn start-prod
+```
+
 ## Website
 
 In `website` directory located [docusaurus](https://github.com/facebook/docusaurus) application that you can use to publish documentation for your monorepo.

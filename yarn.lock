@@ -367,14 +367,6 @@
   resolved "https://registry.yarnpkg.com/@ditsmod/router/-/router-2.0.0-next.0.tgz#78112f59f5f36f82192aa9c91a02a02f3c7df4db"
   integrity sha512-eGZIeSCRRhjPbI4bhx2DT9H49/aa61APwvXncbQWwEwWWbiA55slFVT8Q5QcO3WF1cXHjaknQCtclzAsXYqWAg==
 
-"@ditsmod/session-cookie@^2.0.0-next.0":
-  version "2.0.0-next.0"
-  resolved "https://registry.yarnpkg.com/@ditsmod/session-cookie/-/session-cookie-2.0.0-next.0.tgz#7f415d0f938781cc8c4d2b24db16f1dd89e26305"
-  integrity sha512-00MxWwqJFk3Ew+L2JnYmZ/VsnOXQE6IDo9OxcLw9a3PfukJ4pydlDWV/ySObVFWswhwssuZ/CwKnBctER+7MJA==
-  dependencies:
-    "@ts-stack/cookies" "^1.0.2"
-    reflect-metadata "^0.1.13"
-
 "@gar/promisify@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"
