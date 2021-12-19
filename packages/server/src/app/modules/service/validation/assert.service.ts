@@ -107,6 +107,18 @@ export class AssertService {
     }
   }
 
+  object(name: string, value: object, msg1?: string, args1?: (string | number)[]) {
+    if (typeof value != 'object') {
+      throw new CustomError({ msg1: msg1 || this.serverMsg.missingObjectProperty, args1: args1 || [name] });
+    }
+  }
+
+  optionalObject(name: string, value: object, msg1?: string, args1?: (string | number)[]) {
+    if (value !== undefined) {
+      this.object(name, value, msg1, args1);
+    }
+  }
+
   pattern(name: string, value: string, pattern: string | RegExp, msg1?: string, args1?: (string | number)[]) {
     if (typeof value != 'string' || !RegExp(pattern).test(value)) {
       throw new CustomError({ msg1: msg1 || this.serverMsg.wrongPatternParam, args1: args1 || [name] });
