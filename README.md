@@ -24,21 +24,11 @@ ng new packages/my-angular-application
 yarn start
 ```
 
+After this, see OpenAPI docs on [http://localhost:3000/api/openapi](http://localhost:3000/api/openapi)
+
 ## Start the web server in production mode
 
 ```bash
 yarn build
 yarn start-prod
-```
-
-## Website
-
-In `website` directory located [docusaurus](https://github.com/facebook/docusaurus) application that you can use to publish documentation for your monorepo.
-
-If you need this, you can:
-
-```bash
-cd website
-yarn install
-yarn start
 ```
