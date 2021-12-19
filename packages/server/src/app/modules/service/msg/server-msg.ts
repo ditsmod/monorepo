@@ -48,9 +48,9 @@ export class ServerMsg {
    */
   wrongBoolParam = `Invalid boolean parameter '%s'`;
   /**
-   * Token is out of date or invalid
+   * Invalid user name
    */
-  invalidEmailToken = `Token is out of date or invalid`;
+  invalidUserName = `Invalid user name`;
   pageNotFound = `Page not found`;
   forbidden = `Forbidden`;
   /**

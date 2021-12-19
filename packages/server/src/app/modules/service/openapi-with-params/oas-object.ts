@@ -7,15 +7,18 @@ export const oasObject: XOasObject = {
   info: { title: 'Your description here', version: '1.0.0' },
   tags: [
     {
-      name: 'demo',
-      description: 'Routes used only to demonstrate the configuration and work with controllers.',
-    },
-    {
       name: 'NonOasRoutes',
       description:
         'Routes that used `@Route()` decorator. If you want to change this description, ' +
         '[use tags](https://swagger.io/docs/specification/grouping-operations-with-tags/) ' +
         'for `@OasRoute()` imported from @ditsmod/openapi.',
+    },
+    {
+      name: 'demo',
+      description:
+        'OpenAPI specefication routes. This routes used `@OasRoute()` decorator ' +
+        'imported from @ditsmod/openapi. Here the configuration and work ' +
+        'with controllers is demonstrated.',
     },
     {
       name: 'OasDocs',

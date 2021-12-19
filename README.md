@@ -4,7 +4,7 @@ This monorepository includes [Ditsmod](https://github.com/ditsmod/ditsmod) appli
 
 All packages are located in `packages/*` and are serviced by [lerna](https://github.com/lerna/lerna) and [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/).
 
-So you need to do:
+From start you need to do:
 
 ```bash
 yarn install

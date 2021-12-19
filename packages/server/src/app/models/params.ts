@@ -8,10 +8,18 @@ const config = new AppConfigService();
 const serverMsg = new ServerMsg();
 
 export class Params {
-  @Column()
-  authorization: string;
-  @Column()
-  lcl: string;
-  @Column()
-  refresh: boolean;
+  @Column({
+    minimum: config.minUserAge,
+    maximum: config.maxUserAge,
+    description: `Age should be between ${config.minUserAge} and ${config.maxUserAge} years.`,
+  })
+  userAge: number;
+
+  @Column({
+    minLength: config.minUserName,
+    maxLength: config.maxUserName,
+    [VALIDATION_ARGS]: [serverMsg.invalidUserName],
+    description: `User name should be between ${config.minUserName} and ${config.maxUserName} symbols.`,
+  })
+  userName: string;
 }

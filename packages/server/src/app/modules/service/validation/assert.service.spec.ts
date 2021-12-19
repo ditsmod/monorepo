@@ -44,7 +44,7 @@ describe(`ParamsService`, () => {
       expect(() => assert.string('stringParam', '111', 1, 2)).toThrowError(`${serverMsg.wrongTextParam}`);
       expect(() => assert.string('stringParam', '111', 2, 2)).toThrowError(`${serverMsg.wrongTextParam}`);
       expect(() => assert.string('stringParam', 1 as any, 1, 2)).toThrowError(`${serverMsg.wrongTextParam}`);
-      const msg = serverMsg.invalidEmailToken;
+      const msg = serverMsg.invalidUserName;
       expect(() => assert.string('stringParam', '111', 2, 2, msg)).toThrowError(`${msg}`);
     });
 
