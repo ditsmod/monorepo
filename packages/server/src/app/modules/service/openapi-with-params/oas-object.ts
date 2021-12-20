@@ -20,10 +20,6 @@ export const oasObject: XOasObject = {
         'imported from @ditsmod/openapi. Setting for this routes you can find in ' +
         '`packages/server/src/app/modules/service/openapi-with-params/oas-object.ts`.',
     },
-    {
-      name: 'OasDocs',
-      description: 'Routes used to service OpenAPI documentation',
-    },
   ],
   components: {
     responses: {
