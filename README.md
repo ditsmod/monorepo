@@ -11,7 +11,13 @@ yarn install
 yarn boot # This command actually call "lerna bootstrap"
 ```
 
-After that, rename `packages/server/.env-example` to `packages/server/.env` and fill this file.
+After that, copy `packages/server/.env-example` to `packages/server/.env`:
+
+```bash
+cp packages/server/.env-example packages/server/.env-test
+```
+
+And fill this file.
 
 If you want to add, for example, an Angular application, you can do this:
 
@@ -26,7 +32,7 @@ ng new packages/my-angular-application
 yarn start
 ```
 
-After that, see OpenAPI docs on [http://localhost:3000/api/openapi](http://localhost:3000/api/openapi)
+After this, see OpenAPI docs on [http://localhost:3000/api/openapi](http://localhost:3000/api/openapi)
 
 ## Start the web server in production mode
 
