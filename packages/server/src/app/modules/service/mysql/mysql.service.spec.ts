@@ -1,12 +1,12 @@
 import * as path from 'path';
 import { config } from 'dotenv';
 import { PoolConnection } from 'mysql';
+config({ path: path.resolve(__dirname + '../../../../../../.env') });
 
 import { ServerMsg } from '@service/msg/server-msg';
 import { MySqlConfigService } from './mysql-config.service';
 import { MysqlService } from './mysql.service';
 
-config({ path: path.resolve(__dirname + '../../../../../../.env') });
 
 describe('MysqlService', () => {
   it('get connection for default database', async () => {
