@@ -9,7 +9,7 @@ export class AssertService {
   constructor(private config: AppConfigService, private serverMsg: ServerMsg) {}
 
   boolean(name: string, value: boolean | string | number, msg1?: string, args1?: (string | number)[]) {
-    let msg2: string = '';
+    let msg2 = '';
     if (
       (typeof value != 'boolean' && typeof value != 'string' && typeof value != 'number') ||
       ((typeof value == 'string' || typeof value == 'number') &&
@@ -36,7 +36,7 @@ export class AssertService {
    * @param max If omit, max will unchecked.
    */
   number(name: string, value: number | string, min: number = 0, max?: number, msg1?: string, args1?: (string | number)[]) {
-    let msg2: string = '';
+    let msg2 = '';
     const param = !isNaN(parseFloat(value as string)) ? +value : NaN;
     let actual: number | string = 0;
 
@@ -65,7 +65,7 @@ export class AssertService {
    * @param max Maximal lengnth of the text param. If omit, max will unchecked.
    */
   string(name: string, value: string, min: number = 0, max?: number, msg1?: string, args1?: (string | number)[]): void {
-    let msg2: string = '';
+    let msg2 = '';
     let actual: string | number = 0;
     if (typeof value != 'string') {
       actual = this.reduceParamToLog(value);
@@ -92,7 +92,7 @@ export class AssertService {
    * @param max Maximal lengnth of the array param. If omit, max will unchecked.
    */
   array(name: string, value: any[], min: number = 0, max?: number, msg1?: string, args1?: (string | number)[]) {
-    let msg2: string = '';
+    let msg2 = '';
     if (!Array.isArray(value)) msg2 = this.serverMsg.paramIsNotArray;
     else if (value.length < min) msg2 = this.serverMsg.arrayIsTooShort;
     else if (max !== undefined && value.length > max) msg2 = this.serverMsg.arrayIsTooLong;

@@ -3,34 +3,34 @@ import { AssertService } from './assert.service';
 import { ServerMsg } from '@service/msg/server-msg';
 import { AppConfigService } from '@service/app-config/config.service';
 
-describe(`ParamsService`, () => {
+describe('ParamsService', () => {
   const serverMsg = new ServerMsg();
   const assert = new AssertService(new AppConfigService(), serverMsg);
 
-  describe(`id()`, () => {
-    it(`case 1`, () => {
-      expect(() => assert.id('idParam', '')).toThrowError(`${serverMsg.wrongNumericParam}`);
-      expect(() => assert.id('idParam', '1d')).toThrowError(`${serverMsg.wrongNumericParam}`);
-      expect(() => assert.id('idParam', '-1')).toThrowError(`${serverMsg.wrongNumericParam}`);
+  describe('id()', () => {
+    it('case 1', () => {
+      expect(() => assert.id('idParam', '')).toThrowError('${serverMsg.wrongNumericParam}');
+      expect(() => assert.id('idParam', '1d')).toThrowError('${serverMsg.wrongNumericParam}');
+      expect(() => assert.id('idParam', '-1')).toThrowError('${serverMsg.wrongNumericParam}');
     });
 
-    it(`case 2`, () => {
+    it('case 2', () => {
       expect(() => assert.id('idParam', '0')).not.toThrow();
       expect(() => assert.id('idParam', '1')).not.toThrow();
       expect(() => assert.id('idParam', '1111')).not.toThrow();
     });
   });
 
-  describe(`number()`, () => {
-    it(`case 1`, () => {
-      expect(() => assert.number('numberParam', '', 1, 2)).toThrowError(`${serverMsg.wrongNumericParam}`);
-      expect(() => assert.number('numberParam', '1d', 1, 2)).toThrowError(`${serverMsg.wrongNumericParam}`);
-      expect(() => assert.number('numberParam', '0', 1, 2)).toThrowError(`${serverMsg.wrongNumericParam}`);
-      expect(() => assert.number('numberParam', '-1')).toThrowError(`${serverMsg.wrongNumericParam}`);
-      expect(() => assert.number('numberParam', '3', 1, 2)).toThrowError(`${serverMsg.wrongNumericParam}`);
+  describe('number()', () => {
+    it('case 1', () => {
+      expect(() => assert.number('numberParam', '', 1, 2)).toThrowError('${serverMsg.wrongNumericParam}');
+      expect(() => assert.number('numberParam', '1d', 1, 2)).toThrowError('${serverMsg.wrongNumericParam}');
+      expect(() => assert.number('numberParam', '0', 1, 2)).toThrowError('${serverMsg.wrongNumericParam}');
+      expect(() => assert.number('numberParam', '-1')).toThrowError('${serverMsg.wrongNumericParam}');
+      expect(() => assert.number('numberParam', '3', 1, 2)).toThrowError('${serverMsg.wrongNumericParam}');
     });
 
-    it(`case 2`, () => {
+    it('case 2', () => {
       expect(() => assert.number('numberParam', '1', 1, 2)).not.toThrow();
       expect(() => assert.number('numberParam', '2', 1, 2)).not.toThrow();
       expect(() => assert.number('numberParam', '1')).not.toThrow();
@@ -38,17 +38,17 @@ describe(`ParamsService`, () => {
     });
   });
 
-  describe(`string()`, () => {
-    it(`case 1`, () => {
-      expect(() => assert.string('stringParam', '', 1, 2)).toThrowError(`${serverMsg.wrongTextParam}`);
-      expect(() => assert.string('stringParam', '111', 1, 2)).toThrowError(`${serverMsg.wrongTextParam}`);
-      expect(() => assert.string('stringParam', '111', 2, 2)).toThrowError(`${serverMsg.wrongTextParam}`);
-      expect(() => assert.string('stringParam', 1 as any, 1, 2)).toThrowError(`${serverMsg.wrongTextParam}`);
+  describe('string()', () => {
+    it('case 1', () => {
+      expect(() => assert.string('stringParam', '', 1, 2)).toThrowError('${serverMsg.wrongTextParam}');
+      expect(() => assert.string('stringParam', '111', 1, 2)).toThrowError('${serverMsg.wrongTextParam}');
+      expect(() => assert.string('stringParam', '111', 2, 2)).toThrowError('${serverMsg.wrongTextParam}');
+      expect(() => assert.string('stringParam', 1 as any, 1, 2)).toThrowError('${serverMsg.wrongTextParam}');
       const msg = serverMsg.invalidUserName;
-      expect(() => assert.string('stringParam', '111', 2, 2, msg)).toThrowError(`${msg}`);
+      expect(() => assert.string('stringParam', '111', 2, 2, msg)).toThrowError('${msg}');
     });
 
-    it(`case 2`, () => {
+    it('case 2', () => {
       expect(() => assert.string('stringParam', '')).not.toThrow();
       expect(() => assert.string('stringParam', '111')).not.toThrow();
       expect(() => assert.string('stringParam', '1', 1, 2)).not.toThrow();
@@ -57,16 +57,16 @@ describe(`ParamsService`, () => {
     });
   });
 
-  describe(`boolean()`, () => {
-    it(`case 1`, () => {
-      expect(() => assert.boolean('booleanParam', '')).toThrowError(`${serverMsg.paramIsNotBool}`);
-      expect(() => assert.boolean('booleanParam', '111')).toThrowError(`${serverMsg.paramIsNotBool}`);
-      expect(() => assert.boolean('booleanParam', 'aaa')).toThrowError(`${serverMsg.paramIsNotBool}`);
-      expect(() => assert.boolean('booleanParam', {} as any)).toThrowError(`${serverMsg.paramIsNotBool}`);
-      expect(() => assert.boolean('booleanParam', 11 as any)).toThrowError(`${serverMsg.paramIsNotBool}`);
+  describe('boolean()', () => {
+    it('case 1', () => {
+      expect(() => assert.boolean('booleanParam', '')).toThrowError('${serverMsg.paramIsNotBool}');
+      expect(() => assert.boolean('booleanParam', '111')).toThrowError('${serverMsg.paramIsNotBool}');
+      expect(() => assert.boolean('booleanParam', 'aaa')).toThrowError('${serverMsg.paramIsNotBool}');
+      expect(() => assert.boolean('booleanParam', {} as any)).toThrowError('${serverMsg.paramIsNotBool}');
+      expect(() => assert.boolean('booleanParam', 11 as any)).toThrowError('${serverMsg.paramIsNotBool}');
     });
 
-    it(`case 2`, () => {
+    it('case 2', () => {
       expect(() => assert.boolean('booleanParam', 'true')).not.toThrow();
       expect(() => assert.boolean('booleanParam', 'false')).not.toThrow();
       expect(() => assert.boolean('booleanParam', '0')).not.toThrow();
@@ -78,29 +78,29 @@ describe(`ParamsService`, () => {
     });
   });
 
-  describe(`array()`, () => {
-    it(`case 1`, () => {
-      expect(() => assert.array('arrayParam', '' as any)).toThrowError(`${serverMsg.paramIsNotArray}`);
-      expect(() => assert.array('arrayParam', '111' as any)).toThrowError(`${serverMsg.paramIsNotArray}`);
-      expect(() => assert.array('arrayParam', {} as any)).toThrowError(`${serverMsg.paramIsNotArray}`);
-      expect(() => assert.array('arrayParam', 11 as any)).toThrowError(`${serverMsg.paramIsNotArray}`);
+  describe('array()', () => {
+    it('case 1', () => {
+      expect(() => assert.array('arrayParam', '' as any)).toThrowError('${serverMsg.paramIsNotArray}');
+      expect(() => assert.array('arrayParam', '111' as any)).toThrowError('${serverMsg.paramIsNotArray}');
+      expect(() => assert.array('arrayParam', {} as any)).toThrowError('${serverMsg.paramIsNotArray}');
+      expect(() => assert.array('arrayParam', 11 as any)).toThrowError('${serverMsg.paramIsNotArray}');
     });
 
-    it(`case 2`, () => {
+    it('case 2', () => {
       expect(() => assert.array('arrayParam', [])).not.toThrow();
       expect(() => assert.array('arrayParam', [1])).not.toThrow();
     });
   });
 
-  describe(`object()`, () => {
+  describe('object()', () => {
     it('case 1', () => {
-      expect(() => assert.object('objectProperty', '{}' as any)).toThrow(`${serverMsg.missingObjectProperty}`);
+      expect(() => assert.object('objectProperty', '{}' as any)).toThrow('${serverMsg.missingObjectProperty}');
       expect(() => assert.object('objectProperty', {})).not.toThrow();
     });
   });
 
-  describe(`convertToBool()`, () => {
-    it(`case 1`, () => {
+  describe('convertToBool()', () => {
+    it('case 1', () => {
       expect(assert.convertToBool(true)).toBe(true);
       expect(assert.convertToBool('true')).toBe(true);
       expect(assert.convertToBool('1')).toBe(true);
@@ -113,8 +113,8 @@ describe(`ParamsService`, () => {
     });
   });
 
-  describe(`convertToBoolNumber()`, () => {
-    it(`case 1`, () => {
+  describe('convertToBoolNumber()', () => {
+    it('case 1', () => {
       expect(assert.convertToBoolNumber(true)).toBe(1);
       expect(assert.convertToBoolNumber(false)).toBe(0);
     });

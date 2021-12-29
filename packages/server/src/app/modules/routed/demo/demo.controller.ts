@@ -23,7 +23,7 @@ export class DemoController {
     parameters: getParams('path', true, Params, 'userAge'),
     responses: {
       [Status.OK]: {
-        description: `Here description for response with 200 status`,
+        description: 'Here description for response with 200 status',
         content: getContent({ mediaType: 'text/plain' }),
       },
     },
@@ -44,7 +44,7 @@ export class DemoController {
       .getParams(),
     responses: {
       [Status.OK]: {
-        description: `Here description for response with 200 status`,
+        description: 'Here description for response with 200 status',
         content: getContent({ mediaType: 'text/plain' }),
       },
     },
@@ -90,7 +90,7 @@ export class DemoController {
       'JWT you can find in `packages/server/src/app/modules/service/auth/auth.module.ts`',
     responses: {
       [Status.OK]: {
-        description: `Returns token for bearer guard`,
+        description: 'Returns token for bearer guard',
         content: getContent({ mediaType: 'text/plain' }),
       },
     },

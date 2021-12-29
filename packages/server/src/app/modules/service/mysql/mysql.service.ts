@@ -130,9 +130,7 @@ export class MysqlService {
     }
     let status: number = Status.INTERNAL_SERVER_ERROR;
     if (!isNaN(parseFloat(err.sqlMessage || ''))) {
-      let rawMsg: string;
-      let rawStatus: string;
-      [rawMsg, rawStatus] = err.sqlMessage!.split(',');
+      const [rawMsg, rawStatus] = err.sqlMessage!.split(',');
       msg1 = rawMsg || msg1;
       status = +rawStatus || status;
     }

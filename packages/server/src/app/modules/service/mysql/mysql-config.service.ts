@@ -6,7 +6,7 @@ const {
   MYSQL_USER,
   MYSQL_PASSWORD,
   MYSQL_DATABASE,
-  MYSQL_CHARSET
+  MYSQL_CHARSET,
 } = process.env;
 
 export class MySqlConfigService implements ConnectionConfig {
@@ -21,5 +21,5 @@ export class MySqlConfigService implements ConnectionConfig {
       return JSON.parse(`${field.string()}` || '');
     }
     return next();
-  }
+  };
 }
