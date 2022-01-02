@@ -14,7 +14,7 @@ yarn boot # This command actually call "lerna bootstrap"
 After that, copy `packages/server/.env-example` to `packages/server/.env`:
 
 ```bash
-cp packages/server/.env-example packages/server/.env-test
+cp packages/server/.env-example packages/server/.env
 ```
 
 And fill this file.
