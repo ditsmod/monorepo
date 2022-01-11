@@ -1,7 +1,7 @@
-import { createPool, Pool, PoolConnection, MysqlError, OkPacket } from 'mysql';
+import { createPool, Pool, PoolConnection, MysqlError, OkPacket, FieldInfo } from 'mysql';
 import { Injectable } from '@ts-stack/di';
 import { Level } from '@ditsmod/logger';
-import { Status, edk } from '@ditsmod/core';
+import { AnyObj, Status } from '@ditsmod/core';
 
 import { ServerMsg } from '@service/msg/server-msg';
 import { CustomError } from '@service/error-handler/custom-error';
@@ -15,7 +15,7 @@ export class MysqlService {
 
   getConnection(dbName?: string): Promise<PoolConnection> {
     return new Promise((resolve, reject) => {
-      const config = {...this.config};
+      const config = { ...this.config };
       const database = (dbName || config.database) as string;
       config.database = database;
       if (!this.pools[database]) {
@@ -32,15 +32,19 @@ export class MysqlService {
     });
   }
 
-  async query<T = edk.AnyObj>(sql: string, params?: any, dbName?: string): Promise<T[] | [T[], OkPacket] | OkPacket> {
+  async query<T = AnyObj>(
+    sql: string,
+    params?: any,
+    dbName?: string
+  ): Promise<{ rows: T[] | [T[], OkPacket] | OkPacket; fieldInfo?: FieldInfo[] }> {
     const connection = await this.getConnection(dbName);
     return new Promise((resolve, reject) => {
-      connection.query(sql, params, (err, rows, fields) => {
+      connection.query(sql, params, (err, rows, fieldInfo) => {
         connection.release();
         if (err) {
           this.handleErr(this.serverMsg.mysqlQuery, err, reject);
         } else {
-          resolve(rows);
+          resolve({ rows, fieldInfo });
         }
       });
     });
@@ -52,19 +56,19 @@ export class MysqlService {
     return connection;
   }
 
-  queryInTransaction<T = edk.AnyObj>(
+  queryInTransaction<T = AnyObj>(
     connection: PoolConnection,
     sql: string,
     params?: any
-  ): Promise<T[] | [T[], OkPacket] | OkPacket> {
+  ): Promise<{ rows: T[] | [T[], OkPacket] | OkPacket; fieldInfo?: FieldInfo[] }> {
     return new Promise((resolve, reject) => {
-      connection.query(sql, params, (err, rows, fields) => {
+      connection.query(sql, params, (err, rows, fieldInfo) => {
         if (err) {
           connection.rollback();
           connection.release();
           this.handleErr(this.serverMsg.mysqlQuery, err, reject);
         } else {
-          resolve(rows);
+          resolve({ rows, fieldInfo });
         }
       });
     });
@@ -84,41 +88,18 @@ export class MysqlService {
     });
   }
 
-  async procedure<T extends edk.AnyObj = edk.AnyObj>(sql: string, params?: any, dbName?: string): Promise<T[]> {
-    const result = (await this.query(sql, params, dbName)) as [T[], OkPacket];
-    return result[0];
-  }
-
-  async procedureInTransaction<T extends edk.AnyObj = edk.AnyObj>(
-    connection: PoolConnection,
-    sql: string,
-    params?: any
-  ): Promise<T[]> {
-    const result = (await this.queryInTransaction(connection, sql, params)) as [T[], OkPacket];
-    return result[0];
-  }
-
-  async multiResult<T>(sql: string, params?: any, dbName?: string) {
-    type Multi<R> = [R] extends [[infer Item0]]
-      ? [Item0[]]
-      : [R] extends [[infer Item1, infer Item2]]
-      ? [Item1[], Item2[]]
-      : [R] extends [[infer Item11, infer Item22, infer Item3]]
-      ? [Item11[], Item22[], Item3[]]
-      : never;
-    const result = (await this.query(sql, params, dbName)) as any[];
-    return result as Multi<T>;
-  }
-
   /**
-   * Insert or Update rows in the database.
+   * If your select used `SQL_CALC_FOUND_ROWS`, you can use this method to get results for
+   * this select and select with `found_rows()` function.
    */
-  affect(sql: string, params?: any, dbName?: string) {
-    return this.query(sql, params, dbName) as Promise<OkPacket>;
-  }
-
-  affectInTransaction(connection: PoolConnection, sql: string, params?: any) {
-    return this.queryInTransaction(connection, sql, params) as Promise<OkPacket>;
+  async queryWithFoundRows(sql1: string, params?: any) {
+    const poolConnection = await this.startTransaction();
+    const result = await this.queryInTransaction(poolConnection, sql1, params);
+    const sql2 = `select found_rows() as foundRows;`;
+    const result2 = await this.queryInTransaction(poolConnection, sql2);
+    this.commit(poolConnection);
+    const foundRows = (result2.rows as { foundRows: number }[])[0].foundRows;
+    return { result, foundRows };
   }
 
   protected handleErr(msg1: string, err: MysqlError, reject: (...args: any[]) => void) {

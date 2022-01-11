@@ -13,13 +13,6 @@ export const oasObject: XOasObject = {
         '[use tags](https://swagger.io/docs/specification/grouping-operations-with-tags/) ' +
         'for `@OasRoute()` imported from @ditsmod/openapi.',
     },
-    {
-      name: 'demo',
-      description:
-        'OpenAPI specefication routes. This routes used `@OasRoute()` decorator ' +
-        'imported from @ditsmod/openapi. Setting for this routes you can find in ' +
-        '`packages/server/src/app/modules/service/openapi-with-params/oas-object.ts`.',
-    },
   ],
   components: {
     responses: {
@@ -29,7 +22,7 @@ export const oasObject: XOasObject = {
           Unauthorized: {
             schema: { type: 'string' },
             description:
-              'Taken from [swagger.io](https://swagger.io/docs/specification/authentication/cookie-authentication/)',
+              'Taken from [swagger.io](https://swagger.io/docs/specification/authentication/bearer-authentication/)',
           },
         },
       },

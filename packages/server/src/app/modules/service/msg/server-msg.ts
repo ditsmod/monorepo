@@ -78,4 +78,24 @@ export class ServerMsg {
    * Missing object in this property
    */
    missingObjectProperty = 'Missing object in this property';
+  /**
+   * A user with this email or username is already registered
+   */
+   usernameOrEmailAlreadyExists = 'A user with this email or username is already registered';
+  /**
+   * Bad password or email
+   */
+   badPasswordOrEmail = 'Bad password or email';
+  /**
+   * Article with this slug exists: '%s'
+   */
+   slugExists = 'Article with this slug exists: \'%s\'';
+  /**
+   * INTERNAL SERVER ERROR
+   */
+   internalError = 'INTERNAL SERVER ERROR';
+  /**
+   * You have an outdated token
+   */
+   youHaveObsoleteToken = 'You have an outdated token';
 }
