@@ -1,5 +1,5 @@
 import { InjectionToken } from '@ts-stack/di';
-import { edk, NodeRequest, NodeResponse } from '@ditsmod/core';
+import { AnyObj, NodeRequest, NodeResponse } from '@ditsmod/core';
 
 export interface LocalMap {
   [key: number]: string;
@@ -11,7 +11,7 @@ export interface SessionMethods {
   reset(): void;
   setDuration(newDuration: number, ephemeral: boolean): void;
 }
-export type SessionObj<T extends edk.AnyObj = edk.AnyObj> = T & SessionMethods;
+export type SessionObj<T extends AnyObj = AnyObj> = T & SessionMethods;
 export interface QueryParams {
   [key: string]: string;
 }

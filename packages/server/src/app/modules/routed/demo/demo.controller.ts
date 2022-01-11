@@ -17,7 +17,7 @@ export class DemoController {
   }
 
   // Rest of the methods used OpenAPI specefication routes.
-  @OasRoute('GET', 'user-categories/:userAge', [], {
+  @OasRoute('GET', 'user-categories/:userAge', {
     tags: ['demo'],
     description: 'This is controller with parameter in path and with TypeScript model',
     parameters: getParams('path', true, Params, 'userAge'),
@@ -33,7 +33,7 @@ export class DemoController {
     this.res.send(`You are ${age} years old.`);
   }
 
-  @OasRoute('GET', 'resource1', [], {
+  @OasRoute('GET', 'resource1', {
     tags: ['demo'],
     description: 'This is controller with parameter in query and with TypeScript model',
     parameters: new Parameters()
@@ -59,7 +59,7 @@ export class DemoController {
     this.res.send(`${msg}.`);
   }
 
-  @OasRoute('POST', 'resource2', [], {
+  @OasRoute('POST', 'resource2', {
     tags: ['demo'],
     description: 'This is controller with TypeScript requestBody model',
     requestBody: {
@@ -68,7 +68,7 @@ export class DemoController {
     },
     responses: {
       [Status.OK]: {
-        description: 'Опис контенту із даним статусом',
+        description: 'Description of content with this status',
         content: getContent({ mediaType: '*/*', model: Response1 }),
       },
     },
@@ -83,7 +83,7 @@ export class DemoController {
     this.res.send(`${msg}.`);
   }
 
-  @OasRoute('GET', 'jwt-token', [], {
+  @OasRoute('GET', 'jwt-token', {
     tags: ['demo'],
     description:
       'This OAS route used to get token for bearer guard. Setting for ' +
