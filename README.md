@@ -1,6 +1,6 @@
 ## About the project
 
-This monorepository includes [Ditsmod](https://ditsmod.github.io/en/docs/intro) applications seed.
+This monorepository includes [Ditsmod](https://ditsmod.github.io/en/) applications seed.
 
 All packages are located in `packages/*` and are serviced by [lerna](https://github.com/lerna/lerna) and [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/).
 
