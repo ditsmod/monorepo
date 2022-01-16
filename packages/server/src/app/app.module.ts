@@ -26,9 +26,13 @@ import { AppLoggerModule } from '@service/logger/app-logger.module';
     AuthModule,
     MysqlModule,
     openapiModuleWithParams,
+    ValidationModule,
+    ErrorHandlerModule,
     // AppLoggerModule, // Uncomment this to allow write logs with AppLoggerModule
     ConfigModule,
+    UtilModule,
     MsgModule,
+    BodyParserModule
   ],
   controllers: [],
   resolvedCollisionsPerApp: [
