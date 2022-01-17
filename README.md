@@ -40,3 +40,20 @@ After this, see OpenAPI docs on [http://localhost:3000/api/openapi](http://local
 yarn build
 yarn start-prod
 ```
+
+## Extends the projects
+
+If you want to add, for example, an Angular application, you can do this:
+
+```bash
+npm install -g @angular/cli
+ng new packages/<your-project-name>
+```
+
+Then open `packages/<your-project-name>/angular.json` and fix `$schema`:
+
+```json
+// ...
+"$schema": "../../node_modules/@angular/cli/lib/config/schema.json",
+// ...
+```
