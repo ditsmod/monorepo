@@ -19,13 +19,6 @@ cp packages/server/.env-example packages/server/.env
 
 And fill this file.
 
-If you want to add, for example, an Angular application, you can do this:
-
-```bash
-npm install -g @angular/cli
-ng new packages/my-angular-application
-```
-
 ## Start the web server in develop mode
 
 ```bash
@@ -46,8 +39,9 @@ yarn start-prod
 If you want to add, for example, an Angular application, you can do this:
 
 ```bash
-npm install -g @angular/cli
-ng new packages/<your-project-name>
+yarn global add @angular/cli
+cd packages
+ng new my-angular-application --routing
 ```
 
 Then open `packages/<your-project-name>/angular.json` and fix `$schema`:
