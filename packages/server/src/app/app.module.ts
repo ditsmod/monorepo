@@ -19,9 +19,9 @@ import { AppLoggerModule } from '@service/logger/app-logger.module';
   serverName: 'Node.js',
   serverOptions: {},
   listenOptions: { port: 3000, host: 'localhost' },
-  prefixPerApp: 'api',
+  path: 'api',
   imports: [
-    { prefix: 'demo', module: DemoModule },
+    { path: 'demo', module: DemoModule },
     RouterModule,
     AuthModule,
     MysqlModule,
