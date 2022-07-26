@@ -13,12 +13,13 @@ import { AuthModule } from '@service/auth/auth.module';
 import { openapiModuleWithParams } from '@service/openapi-with-params/openapi-with-params.module';
 import { DemoModule } from '@routed/demo/demo.module';
 import { AppLoggerModule } from '@service/logger/app-logger.module';
+import { getPort } from '@utils/get-port';
 
 @RootModule({
   httpModule: http,
   serverName: 'Node.js',
   serverOptions: {},
-  listenOptions: { port: 3000, host: 'localhost' },
+  listenOptions: { port: getPort(3000), host: 'localhost' },
   path: 'api',
   imports: [
     { path: 'demo', module: DemoModule },
