@@ -1,10 +1,10 @@
 export const enum Permission {
   /**
-   * Can activate `/administration` secrion
+   * Can activate `/administration` section
    */
   canActivateAdministration = 1,
   /**
-   * Can activate `/administration/posts-review` secrion
+   * Can activate `/administration/posts-review` section
    */
   canActivatePostsReview = 2,
   /**
