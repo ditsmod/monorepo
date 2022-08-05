@@ -12,8 +12,9 @@ import { MsgModule } from '@service/msg/msg.module';
 import { AuthModule } from '@service/auth/auth.module';
 import { openapiModuleWithParams } from '@service/openapi-with-params/openapi-with-params.module';
 import { DemoModule } from '@routed/demo/demo.module';
-import { AppLoggerModule } from '@service/logger/app-logger.module';
 import { getPort } from '@utils/get-port';
+
+const loggerConfig = new LoggerConfig('debug');
 
 @RootModule({
   httpModule: http,
@@ -29,16 +30,14 @@ import { getPort } from '@utils/get-port';
     openapiModuleWithParams,
     ValidationModule,
     ErrorHandlerModule,
-    // AppLoggerModule, // Uncomment this to allow write logs with AppLoggerModule
     ConfigModule,
     UtilModule,
     MsgModule,
     BodyParserModule
   ],
   controllers: [],
-  resolvedCollisionsPerApp: [
-    // [Logger, AppLoggerModule], // Uncomment this to allow write logs with AppLoggerModule
-    // [LoggerConfig, AppLoggerModule], // Uncomment this to allow write logs with AppLoggerModule
+  providersPerApp: [
+    { provide: LoggerConfig, useValue: loggerConfig },
   ],
   resolvedCollisionsPerReq: [[ControllerErrorHandler, ErrorHandlerModule]],
   exports: [

@@ -2,7 +2,6 @@ import { format } from 'util';
 import { Injectable } from '@ts-stack/di';
 import { Logger, Status, Req, Res, ControllerErrorHandler } from '@ditsmod/core';
 import { ChainError } from '@ts-stack/chain-error';
-import { Level, LevelNames } from '@ditsmod/logger';
 
 import { ErrorOpts } from './custom-error';
 
@@ -28,9 +27,8 @@ export class ErrorHandler implements ControllerErrorHandler {
       }
       err.message = paramName ? `Parameter '${paramName}': ${message}` : message;
       const { level, status } = err.info;
-      const levelName = Level[level!] as LevelNames;
       delete err.info.level;
-      this.log[levelName]({ err, req, ...err.info });
+      this.log.log(level || 'debug', { err, req, ...err.info });
       if (!this.res.nodeRes.headersSent) {
         this.res.sendJson({ errors: { [paramName]: [message] } }, status);
       }
