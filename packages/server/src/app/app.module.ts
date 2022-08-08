@@ -14,7 +14,7 @@ import { openapiModuleWithParams } from '@service/openapi-with-params/openapi-wi
 import { DemoModule } from '@routed/demo/demo.module';
 import { getPort } from '@utils/get-port';
 
-const loggerConfig = new LoggerConfig('debug');
+const loggerConfig = new LoggerConfig('info');
 
 @RootModule({
   httpModule: http,

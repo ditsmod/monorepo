@@ -325,10 +325,10 @@
   dependencies:
     get-body "^1.0.3"
 
-"@ditsmod/core@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@ditsmod/core/-/core-2.2.2.tgz#b2e71479617a774a58810ce31792a444d2e0cd9d"
-  integrity sha512-WOrHhHehOTG6PB6jWYzrMjED7rUbOlykJZhu8iuVLlzzCrnHh+ICJJtmCgvGbmXmr6PlJr+Xw6KloAfmpY2zVA==
+"@ditsmod/core@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@ditsmod/core/-/core-2.2.3.tgz#296c0a6de7d9950e65c1d7cf0c5c607763c2800e"
+  integrity sha512-b0WKPYbschvA8vx6ARJDHCSykzRQ7E8vjPogWXmteeN0LP8cCSUK1Y4pMXejaGT05i8j1H6rn9iyfvQKpWeNfg==
 
 "@ditsmod/jwt@^2.0.0":
   version "2.0.0"
