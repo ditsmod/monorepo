@@ -23,7 +23,7 @@ export class ErrorHandler implements ControllerErrorHandler {
       if (template.includes('%s')){
         message = format(template, ...restArgs1);
       } else {
-        message = format(template);
+        message = template;
       }
       err.message = paramName ? `Parameter '${paramName}': ${message}` : message;
       const { level, status } = err.info;
