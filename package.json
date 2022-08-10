@@ -13,7 +13,7 @@
     "boot": "lerna bootstrap",
     "pub": "lerna publish from-package",
     "build": "yarn clean && tsc -b -f packages",
-    "clean": "rimraf packages/**/dist packages/**/out-tsc* packages/**/*.tsbuildinfo"
+    "clean": "rimraf packages/server/dist packages/shared/dist packages/**/out-tsc* packages/**/*.tsbuildinfo"
   },
   "devDependencies": {
     "@types/eslint": "^8.2.1",
