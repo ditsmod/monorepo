@@ -1,41 +1,36 @@
 import { format } from 'util';
 import { Injectable } from '@ts-stack/di';
-import { Logger, Status, Req, Res, ControllerErrorHandler } from '@ditsmod/core';
+import { Logger, Status, Res, ControllerErrorHandler } from '@ditsmod/core';
 import { ChainError } from '@ts-stack/chain-error';
 
 import { ErrorOpts } from './custom-error';
 
 @Injectable()
 export class ErrorHandler implements ControllerErrorHandler {
-  constructor(
-    private req: Req,
-    private res: Res,
-    private log: Logger
-  ) {}
+  constructor(private res: Res, private logger: Logger) {}
 
   async handleError(err: ChainError<ErrorOpts> | Error) {
-    const req = this.req;
-    let message = err.message;
     if (err instanceof ChainError) {
       const template = err.info.msg1!;
       const paramName = err.info.args1![0];
-      const restArgs1 = err.info.args1!.slice(1);
-      if (template.includes('%s')){
-        message = format(template, ...restArgs1);
+      const args1 = err.info.args1!.slice(1);
+      let message = err.message;
+      if (template.includes('%s')) {
+        message = format(template, ...args1);
       } else {
-        message = template;
+        message = template || message;
       }
       err.message = paramName ? `Parameter '${paramName}': ${message}` : message;
       const { level, status } = err.info;
       delete err.info.level;
-      this.log.log(level || 'debug', { err, req, ...err.info });
+      this.logger.log(level || 'debug', { err, ...err.info });
       if (!this.res.nodeRes.headersSent) {
-        this.res.sendJson({ errors: { [paramName]: [message] } }, status);
+        this.res.sendJson({ [paramName || 'error']: message }, status);
       }
     } else {
-      this.log.error({ err, req });
+      this.logger.error({ err });
       if (!this.res.nodeRes.headersSent) {
-        this.res.sendJson({ error: { message: 'Internal server error' } }, Status.INTERNAL_SERVER_ERROR);
+        this.res.sendJson({ error: 'Internal server error' }, Status.INTERNAL_SERVER_ERROR);
       }
     }
   }

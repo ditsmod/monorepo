@@ -5,7 +5,7 @@ export class ErrorOpts {
   /**
    * Message for fronend.
    */
-  msg1?: string = '';
+  msg1?: string = 'Internal server error';
   /**
    * Arguments for `msg1`.
    */
