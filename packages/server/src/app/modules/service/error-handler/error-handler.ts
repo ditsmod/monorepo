@@ -1,15 +1,16 @@
 import { format } from 'util';
 import { Injectable } from '@ts-stack/di';
-import { Logger, Status, Res, ControllerErrorHandler } from '@ditsmod/core';
+import { Logger, Status, Res, ControllerErrorHandler, Req } from '@ditsmod/core';
 import { ChainError } from '@ts-stack/chain-error';
 
 import { ErrorOpts } from './custom-error';
 
 @Injectable()
 export class ErrorHandler implements ControllerErrorHandler {
-  constructor(private res: Res, private logger: Logger) {}
+  constructor(private req: Req, private res: Res, private logger: Logger) {}
 
   async handleError(err: ChainError<ErrorOpts> | Error) {
+    const req = this.req.toString();
     if (err instanceof ChainError) {
       const template = err.info.msg1!;
       const paramName = err.info.args1![0];
@@ -23,12 +24,12 @@ export class ErrorHandler implements ControllerErrorHandler {
       err.message = paramName ? `Parameter '${paramName}': ${message}` : message;
       const { level, status } = err.info;
       delete err.info.level;
-      this.logger.log(level || 'debug', { err, ...err.info });
+      this.logger.log(level || 'debug', { err, ...err.info, req });
       if (!this.res.nodeRes.headersSent) {
         this.res.sendJson({ [paramName || 'error']: message }, status);
       }
     } else {
-      this.logger.error({ err });
+      this.logger.error({ err, req });
       if (!this.res.nodeRes.headersSent) {
         this.res.sendJson({ error: 'Internal server error' }, Status.INTERNAL_SERVER_ERROR);
       }

@@ -32,8 +32,9 @@ export class ValidationExtension implements Extension<void> {
 
     metadataPerMod2Arr.forEach((metadataPerMod2) => {
       const { aControllersMetadata2, providersPerMod } = metadataPerMod2;
+      const injectorPerMod = this.injectorPerApp.resolveAndCreateChild(providersPerMod);
+
       aControllersMetadata2.forEach(({ providersPerRou, providersPerReq }) => {
-        const injectorPerMod = this.injectorPerApp.resolveAndCreateChild(providersPerMod);
         const mergedPerRou = [...metadataPerMod2.providersPerRou, ...providersPerRou];
         const injectorPerRou = injectorPerMod.resolveAndCreateChild(mergedPerRou);
         const validationRouteMeta = injectorPerRou.get(OasRouteMeta) as ValidationRouteMeta;
