@@ -26,13 +26,22 @@ export class ErrorHandler implements ControllerErrorHandler {
       delete err.info.level;
       this.logger.log(level || 'debug', { err, ...err.info, req });
       if (!this.res.nodeRes.headersSent) {
+        this.addRequestIdToHeader();
         this.res.sendJson({ [paramName || 'error']: message }, status);
       }
     } else {
       this.logger.error({ err, req });
       if (!this.res.nodeRes.headersSent) {
+        this.addRequestIdToHeader();
         this.res.sendJson({ error: 'Internal server error' }, Status.INTERNAL_SERVER_ERROR);
       }
+    }
+  }
+
+  protected addRequestIdToHeader() {
+    const header = 'x-requestId';
+    if (!this.res.nodeRes.hasHeader(header)) {
+      this.res.nodeRes.setHeader(header, this.req.requestId);
     }
   }
 }
