@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { Logger, Res, Status } from '@ditsmod/core';
+import { Logger, Req, Res, Status } from '@ditsmod/core';
 import { describe, beforeEach, it, expect, jest } from '@jest/globals';
 import { ReflectiveInjector } from '@ts-stack/di';
 
@@ -10,9 +10,18 @@ describe('ErrorHandler', () => {
   type ErrorLog = ErrorOpts & { err?: any };
   let errorHandler: ErrorHandler;
 
+  const req = {
+    requestId: '',
+    toString() {
+      return '';
+    },
+  } as Req;
+
   const res = {
     nodeRes: {
       headersSent: false,
+      hasHeader(...args: any[]) {},
+      setHeader(...args: any[]) {},
     },
     sendJson(...args: any[]) {},
   } as Res;
@@ -24,6 +33,7 @@ describe('ErrorHandler', () => {
 
   beforeEach(() => {
     const injector = ReflectiveInjector.resolveAndCreate([
+      { provide: Req, useValue: req },
       { provide: Res, useValue: res },
       { provide: Logger, useValue: logger },
       ErrorHandler,
