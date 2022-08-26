@@ -325,10 +325,10 @@
   dependencies:
     get-body "^1.0.3"
 
-"@ditsmod/core@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@ditsmod/core/-/core-2.4.0.tgz#899195c7d064f7e18325ecee879f4eb32071f905"
-  integrity sha512-7RJpBwIJPX3hVk19RF0n14P9wl1ry9Me7g3Ar+8Hes+3nXLQoy/Q6DEkOB8aYgXle/DtPIWWGTkJj3XBbneBpg==
+"@ditsmod/core@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@ditsmod/core/-/core-2.8.0.tgz#f4c0d926f0fc9626aa09dcafe6a6904419d9ff13"
+  integrity sha512-uqiM3EgHHilvWBeC65AkLfmWVeDpK0JZK7x4/jO0oBAX1mIPXRlppBsWKpDziUVsOWByX0MPBV7ZDW1JktTJaw==
 
 "@ditsmod/jwt@^2.0.0":
   version "2.0.0"
@@ -8517,6 +8517,11 @@ typescript@^4.3.2:
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"
   integrity sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==
+
+typescript@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.2.tgz#e3b33d5ccfb5914e4eeab6699cf208adee3fd790"
+  integrity sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==
 
 ua-parser-js@^0.7.30:
   version "0.7.31"
