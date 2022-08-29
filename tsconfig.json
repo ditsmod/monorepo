@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // This section of the settings for `tsc --build`
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -22,6 +23,8 @@
     // Used only by tsconfig-paths during call "yarn start-prod"
     "baseUrl": ".",
     "paths": {
+      "@dict/assert": ["./packages/server/dist/app/modules/service/validation/locales/current/_base-uk/assert.dict"],
+      "@configs/*": ["./packages/server/dist/app/configs/*"],
       "@classes/*": ["./packages/server/dist/app/classes/*"],
       "@service/*": ["./packages/server/dist/app/modules/service/*"],
       "@routed/*": ["./packages/server/dist/app/modules/routed/*"],
