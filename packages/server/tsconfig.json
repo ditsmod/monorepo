@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "esModuleInterop": true,
     "noImplicitOverride": true,
     "outDir": "dist",
     "rootDir": "src",

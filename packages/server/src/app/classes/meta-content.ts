@@ -1,4 +1,4 @@
-import { Content, mediaTypeName, ContentOptions, Column } from '@ditsmod/openapi';
+import { Content, mediaTypeName, ContentOptions, Property } from '@ditsmod/openapi';
 
 /**
  * Used to form an example HTTP response in OpenAPI.
@@ -7,11 +7,11 @@ export class MetaContent extends Content {
   override set<T extends mediaTypeName = mediaTypeName>(contentOptions: ContentOptions<T>) {
     contentOptions = { ...contentOptions };
     class ApiResponse {
-      @Column({ type: 'array' }, contentOptions.model!)
+      @Property({ type: 'array' }, { array: contentOptions.model! })
       data: any[];
-      @Column()
+      @Property()
       meta: any;
-      @Column()
+      @Property()
       error: any;
     }
     contentOptions.model = ApiResponse;

@@ -1,5 +1,6 @@
 import 'reflect-metadata';
-import { Column, getContent } from '@ditsmod/openapi';
+import { Property, getContent } from '@ditsmod/openapi';
+import { describe, it, expect } from '@jest/globals';
 
 import { getMetaContent } from './meta-content';
 
@@ -10,9 +11,9 @@ describe('Content', () => {
 
   it('case 2', () => {
     class SomeModel {
-      @Column()
+      @Property()
       property1: number;
-      @Column()
+      @Property()
       property2: string;
     }
 
@@ -44,9 +45,9 @@ describe('MetaContent', () => {
 
   it('case 2', () => {
     class SomeModel {
-      @Column()
+      @Property()
       property1: number;
-      @Column()
+      @Property()
       property2: string;
     }
 
