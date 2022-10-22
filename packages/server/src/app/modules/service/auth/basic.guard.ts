@@ -24,7 +24,7 @@ export class BasicGuard implements CanActivate {
       return this.unauth();
     }
     const [, base64] = authorization.split(' ');
-    if (base64 != 'ZGVtbzpwQDU1dzByZA==') {
+    if (Buffer.from(base64, 'base64').toString() != 'demo:p@55w0rd') {
       return this.unauth();
     }
 
