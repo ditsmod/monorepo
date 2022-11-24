@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@ditsmod/body-parser": "^2.6.1",
-    "@ditsmod/core": "^2.26.0",
+    "@ditsmod/core": "^2.27.0",
     "@ditsmod/i18n": "^2.0.1",
     "@ditsmod/jwt": "^2.0.0",
     "@ditsmod/openapi": "^2.9.4",
@@ -25,7 +25,7 @@
     "@ditsmod/router": "^2.3.0",
     "@ditsmod/session-cookie": "^2.2.0",
     "@ts-stack/chain-error": "^1.2.0",
-    "@ts-stack/cookies": "^1.0.2",
+    "@ts-stack/cookies": "^1.0.3",
     "@ts-stack/di": "^1.2.0",
     "@ts-stack/multiparty": "^1.0.7",
     "@ts-stack/openapi-spec": "^3.1.5",
@@ -37,15 +37,15 @@
     "tsconfig-paths": "^4.1.0"
   },
   "devDependencies": {
-    "@jest/types": "^29.2.1",
+    "@jest/types": "^29.3.1",
     "@types/bunyan": "^1.8.8",
     "@types/dotenv": "^8.2.0",
-    "@types/eslint": "^8.4.7",
+    "@types/eslint": "^8.4.10",
     "@types/mysql": "^2.15.19",
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
-    "eslint": "^8.26.0",
-    "jest": "^29.2.1",
-    "lerna": "^6.0.1"
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "jest": "^29.3.1",
+    "lerna": "^6.0.3"
   }
 }
