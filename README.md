@@ -36,12 +36,26 @@ yarn start-prod
 
 ## Extends the projects
 
-If you want to add, for example, an Angular application, you can do this:
+Since this monorepo is served by yarn, it is necessary that any npm packages install via yarn.
+
+If you want to add, for example, an Angular application, You can set yarn by default for angular-cli:
 
 ```bash
-yarn global add @angular/cli
+npm i -g add @angular/cli
+ng config -g cli.packageManager yarn
+```
+
+Then you can do this:
+
+```bash
 cd packages
 ng new my-angular-application --routing
+```
+
+For some reason, a bug of yarn appears after this command. If you open [http://localhost:3000/api/openapi](http://localhost:3000/api/openapi) you will see this bug. To avoid it, it is necessary delete `yarn.lock` and rebootstrap the monorepo:
+
+```bash
+yarn boot
 ```
 
 Then open `packages/<your-project-name>/angular.json` and fix `$schema`:
