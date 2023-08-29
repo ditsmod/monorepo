@@ -91,7 +91,7 @@ class MyRenderer extends Renderer {
 
     // @todo See inserting more correct code than `window.location`.
     if (href.substring(0, 1) == '#') {
-      out = '<a href="' + href + '"';
+      out = `<a href="` + href + `"`;
     } else {
       out = '<a href="' + href + '"';
     }
@@ -156,7 +156,7 @@ function callback(match: string, param1: string, param2: string, param3: string)
   return 't=' + (sum || '');
 }
 
-Marked.setBlockRule(/^ *(@{3,})[ .]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/, function (execArr) {
+Marked.setBlockRule(/^ *(@{3,})[ \.]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/, function (execArr) {
   const channel = execArr![2];
   const content = execArr![3];
 
@@ -169,7 +169,7 @@ Marked.setBlockRule(/^ *(@{3,})[ .]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/, funct
         .replace(/&amp;/g, '&')
         .replace(/t=(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?/g, callback)
         .replace(/([&?])t=/, '$1start=');
-      return '\n<iframe width="420" height="315" allowfullscreen frameBorder="0" src="https://www.youtube.com/embed/${id}"></iframe>\n';
+      return `\n<iframe width="420" height="315" allowfullscreen frameBorder="0" src="https://www.youtube.com/embed/${id}"></iframe>\n`;
     }
     case 'katex': {
       try {

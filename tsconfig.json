@@ -1,38 +1,33 @@
 {
   "compilerOptions": {
-    // This section of the settings for `tsc --build`
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "composite": true,
 
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
-    "noImplicitOverride": true,
-    "target": "es2020",
-    "module": "commonjs",
+    "target": "es2022",
     "strictPropertyInitialization": false,
     "noImplicitAny": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "moduleResolution": "node",
-
-    // Used only by tsconfig-paths during call "yarn start-prod"
-    "baseUrl": ".",
     "paths": {
-      "@dict/assert": ["./packages/server/dist/app/modules/service/validation/locales/current/_base-uk/assert.dict"],
-      "@configs/*": ["./packages/server/dist/app/configs/*"],
-      "@classes/*": ["./packages/server/dist/app/classes/*"],
-      "@service/*": ["./packages/server/dist/app/modules/service/*"],
-      "@routed/*": ["./packages/server/dist/app/modules/routed/*"],
-      "@services-per-app/*": ["./packages/server/dist/app/services-per-app/*"],
-      "@models/*": ["./packages/server/dist/app/models/*"],
-      "@utils/*": ["./packages/server/dist/app/utils/*"],
-      "@shared": ["./packages/shared/dist/server"],
-      "@shared/*": ["./packages/shared/dist/server/*"],
+      "#configs/*": ["./packages/server/dist/app/configs/*"],
+      "#classes/*": ["./packages/server/dist/app/classes/*"],
+      "#service/*": ["./packages/server/dist/app/modules/service/*"],
+      "#routed/*": ["./packages/server/dist/app/modules/routed/*"],
+      "#services-per-app/*": ["./packages/server/dist/app/services-per-app/*"],
+      "#models/*": ["./packages/server/dist/app/models/*"],
+      "#utils/*": ["./packages/server/dist/app/utils/*"],
+      "#shared": ["./packages/shared/dist/server"],
+      "#shared/*": ["./packages/shared/dist/server/*"],
     }
   },
   "exclude": [ "**/node_modules/*"]

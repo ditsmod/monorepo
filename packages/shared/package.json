@@ -1,13 +1,27 @@
 {
   "private": true,
+  "type": "module",
   "name": "shared",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index",
-  "typings": "dist/index",
+  "main": "./dist/server/index.js",
+  "types": "./dist/server/index.d.ts",
+  "module": "./dist/server/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/server/index.js",
+      "require": "./dist/client/index.js",
+      "default": "./dist/client/index.js"
+    },
+    "./markdown": {
+      "import": "./dist/server/markdown.js",
+      "require": "./dist/client/markdown.js",
+      "default": "./dist/server/markdown.js"
+    }
+  },
   "scripts": {
-    "test": "jest",
-    "build": "tsc -b -f"
+    "build": "tsc -b tsconfig.server.json && tsc -b tsconfig.client.json",
+    "clean": "rimraf dist*"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +30,7 @@
   },
   "dependencies": {
     "@ts-stack/markdown": "^1.4.0",
-    "highlight.js": "^11.0.0",
+    "highlight.js": "^11.8.0",
     "katex": "^0.13.11"
   }
 }

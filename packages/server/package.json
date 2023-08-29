@@ -1,6 +1,7 @@
 {
   "private": true,
-  "author": "Костя Третяк <ktretiak.in.ua@gmail.com>",
+  "type": "module",
+  "author": "Your Name Here",
   "name": "server",
   "description": "Ditsmod application",
   "version": "1.0.0",
@@ -10,35 +11,28 @@
     "lib": "src"
   },
   "scripts": {
-    "start": "nodemon -e ts --exec ts-node -r tsconfig-paths/register src/main.ts",
-    "test": "jest",
-    "build": "yarn clean && tsc -b -f",
-    "clean": "rimraf dist ./**/*.tsbuildinfo"
+    "start": "npm run build && node -r dotenv/config dist/main.js",
+    "esm-jest": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
+    "test": "tsc -b tsconfig.test.json && npm run esm-jest",
+    "build": "tsc -b tsconfig.build.json",
+    "clean": "rimraf dist*"
+  },
+  "imports": {
+    "#src/*": "./dist/*",
+    "#routed/*": "./dist/app/modules/routed/*",
+    "#service/*": "./dist/app/modules/service/*",
+    "#shared": "shared",
+    "#shared/*": "shared/*"
   },
   "dependencies": {
-    "@ditsmod/body-parser": "^2.6.1",
-    "@ditsmod/core": "^2.27.0",
-    "@ditsmod/i18n": "^2.0.1",
-    "@ditsmod/jwt": "^2.0.0",
-    "@ditsmod/openapi": "^2.9.4",
-    "@ditsmod/openapi-validation": "^2.2.0",
-    "@ditsmod/router": "^2.3.0",
-    "@ditsmod/session-cookie": "^2.2.0",
-    "@ts-stack/chain-error": "^1.2.0",
-    "@ts-stack/cookies": "^1.0.3",
-    "@ts-stack/di": "^1.2.0",
-    "@ts-stack/multiparty": "^1.0.7",
-    "@ts-stack/openapi-spec": "^3.1.5",
-    "bunyan": "^1.8.15",
-    "dotenv": "^16.0.3",
-    "mysql": "^2.18.1",
-    "punycode": "^2.1.1",
-    "reflect-metadata": "^0.1.13",
-    "tsconfig-paths": "^4.1.0"
+    "@ditsmod/body-parser": "^2.12.1",
+    "@ditsmod/core": "^2.47.0",
+    "@ditsmod/router": "^2.6.0",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "@types/bunyan": "^1.8.8",
-    "@types/dotenv": "^8.2.0",
-    "@types/mysql": "^2.15.19"
+    "@ditsmod/testing": "^2.4.0-beta.2",
+    "@types/supertest": "^2.0.12",
+    "supertest": "^6.3.3"
   }
 }

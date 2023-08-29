@@ -1,14 +1,16 @@
-module.exports = {
-  preset: 'ts-jest',
+import type { Config } from 'jest';
+import * as path from 'path';
+import * as dotenv from 'dotenv';
+
+const dotenvPath = path.resolve(`${__dirname}/.env`);
+const output = dotenv.config({ path: dotenvPath });
+if (output.error) {
+  throw output.error;
+}
+
+const config: Config = {
   testEnvironment: 'node',
-  modulePathIgnorePatterns: ['<rootDir>/dist/'],
-  moduleNameMapper: {
-    '@dict/assert': '<rootDir>/src/app/modules/service/validation/locales/current/_base-uk/assert.dict.ts',
-    '@shared': '<rootDir>/../shared/src',
-    '@classes/(.+)': '<rootDir>/src/app/classes/$1',
-    '@models/(.+)': '<rootDir>/src/app/models/$1',
-    '@service/(.+)': '<rootDir>/src/app/modules/service/$1',
-    '@routed/(.+)': '<rootDir>/src/app/modules/routed/$1',
-    '@params': '<rootDir>/src/app/models/params',
-  },
+  modulePathIgnorePatterns: ['<rootDir>/src/', '<rootDir>/test/'],
 };
+
+export default config;

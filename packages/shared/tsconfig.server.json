@@ -1,11 +1,10 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
+    "rootDir": "src",
     "outDir": "dist/server",
-    "target": "ES2020",
-    "types": [
-      "node"
-    ]
-  }
+    "target": "es2022",
+    "tsBuildInfoFile": "dist/server/server.tsbuildinfo",
+  },
+  "include": ["src"]
 }

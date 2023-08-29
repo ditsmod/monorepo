@@ -1,4 +1,2 @@
-export * from './types';
-export * from './shared-config';
-export * from './permission';
-export * from './models';
+export * from './types.js';
+export * from './permission.js';
