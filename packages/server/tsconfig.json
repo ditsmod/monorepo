@@ -6,7 +6,6 @@
     "baseUrl": ".",
     "resolveJsonModule":true,
     "paths": {
-      "#postman-collection": ["./test/conduit.postman-collection.json"],
       "#src/*": ["./src/*"],
       "#routed/*": ["./src/app/modules/routed/*"],
       "#service/*": ["./src/app/modules/service/*"],
