@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "npm run build && node -r dotenv/config dist/main.js",
-    "esm-jest": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js",
+    "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning ../../node_modules/jest/bin/jest.js",
     "test": "tsc -b tsconfig.test.json && npm run esm-jest",
     "build": "tsc -b tsconfig.build.json",
     "clean": "rimraf dist*"
@@ -24,12 +24,12 @@
   },
   "dependencies": {
     "@ditsmod/body-parser": "^2.12.1",
-    "@ditsmod/core": "^2.47.0",
+    "@ditsmod/core": "^2.48.0",
     "@ditsmod/router": "^2.6.0",
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "@ditsmod/testing": "^2.4.0-beta.2",
+    "@ditsmod/testing": "^2.5.0",
     "@types/supertest": "^2.0.12",
     "supertest": "^6.3.3"
   }
