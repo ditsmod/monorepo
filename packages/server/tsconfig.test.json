@@ -5,12 +5,12 @@
     "outDir": "dist-test",
     "rootDir": "test",
     "tsBuildInfoFile": "dist-test/test.tsbuildinfo",
-    "baseUrl": ".",
-    "resolveJsonModule":true
+    "baseUrl": "."
   },
   "include": ["test"],
   "files": [],
   "references": [
-    { "path": "./tsconfig.build.json" }
+    { "path": "./tsconfig.build.json" },
+    { "path": "./tsconfig.unit.json" },
   ]
 }

@@ -8,6 +8,7 @@
     "baseUrl": "."
   },
   "include": ["src"],
+  "exclude": ["src/**/*.spec.ts"],
   "files": [],
   "references": [{ "path": "../shared/tsconfig.server.json" }]
 }
