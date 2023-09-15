@@ -5,7 +5,7 @@ import { SomeModule } from '#routed/some/some.module.js';
 
 @rootModule({
   imports: [RouterModule, { path: '', module: SomeModule }],
-  controllers: [],
   providersPerApp: [...new Providers().useLogConfig({ level: 'info' })],
+  exports: [RouterModule]
 })
 export class AppModule {}
