@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "test": "tsc -b packages/tsconfig.test.json && npm run esm-jest",
-    "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning node_modules/jest/bin/jest.js",
-    "start": "npm run build && npm run start-prod",
+    "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps node_modules/jest/bin/jest.js",
+    "start": "npm run build && node --enable-source-maps -r dotenv/config packages/server/dist/main.js dotenv_config_path=packages/server/.env",
     "start-prod": "node -r dotenv/config packages/server/dist/main.js dotenv_config_path=packages/server/.env",
     "build": "tsc -b packages/tsconfig.json",
     "clean": "rimraf packages/*/dist*"
