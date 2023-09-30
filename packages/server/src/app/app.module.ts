@@ -1,11 +1,11 @@
 import { Providers, rootModule } from '@ditsmod/core';
-import { RouterModule } from '@ditsmod/router';
+import { RoutingModule } from '@ditsmod/routing';
 
 import { SomeModule } from '#routed/some/some.module.js';
 
 @rootModule({
-  imports: [RouterModule, { path: '', module: SomeModule }],
+  imports: [RoutingModule, { path: '', module: SomeModule }],
   providersPerApp: [...new Providers().useLogConfig({ level: 'info' })],
-  exports: [RouterModule]
+  exports: [RoutingModule]
 })
 export class AppModule {}
