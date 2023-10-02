@@ -1,17 +1,34 @@
 import request = require('supertest');
+import { NodeServer } from '@ditsmod/core';
 import { TestApplication } from '@ditsmod/testing';
+import { jest } from '@jest/globals';
 
 import { AppModule } from '#src/app/app.module.js';
 
 
 describe('01-hello-world', () => {
+  let server: NodeServer;
+
+  beforeAll(async () => {
+    jest.restoreAllMocks();
+    server = await new TestApplication(AppModule, { path: 'api' }).getServer();
+  });
+
+  afterAll(() => {
+    server.close();
+  });
+
   it('controller works', async () => {
-    const server = await new TestApplication(AppModule, { path: 'api' }).getServer();
     await request(server)
-      .get('/api')
+      .get('/api/hello')
       .expect(200)
       .expect('Hello World!');
+  });
 
-    server.close();
+  it('controller as singleton works', async () => {
+    await request(server)
+      .get('/api/hello2')
+      .expect(200)
+      .expect('Hello World!');
   });
 });

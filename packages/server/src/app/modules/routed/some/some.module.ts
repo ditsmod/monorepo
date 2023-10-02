@@ -1,8 +1,8 @@
 import { featureModule } from '@ditsmod/core';
 
-import { SomeController } from './some.controller.js';
+import { SingletonController, SomeController } from './some.controller.js';
 
 @featureModule({
-  controllers: [SomeController],
+  controllers: [SomeController, SingletonController],
 })
 export class SomeModule {}
