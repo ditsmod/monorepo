@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "@ditsmod/body-parser": "^2.13.1",
-    "@ditsmod/core": "^2.50.1",
-    "@ditsmod/routing": "^2.0.1",
+    "@ditsmod/core": "^2.51.0",
+    "@ditsmod/routing": "^2.1.0",
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
