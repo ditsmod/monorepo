@@ -5,6 +5,9 @@
   "name": "server",
   "description": "Ditsmod application",
   "version": "1.0.0",
+  "engines": {
+    "node": ">= 18.14.0"
+  },
   "directories": {
     "lib": "src"
   },
@@ -31,7 +34,7 @@
   },
   "devDependencies": {
     "@ditsmod/testing": "^2.7.0",
-    "@types/supertest": "^2.0.12",
+    "@types/supertest": "^2.0.14",
     "supertest": "^6.3.3"
   }
 }
