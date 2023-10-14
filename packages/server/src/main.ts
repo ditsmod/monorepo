@@ -13,7 +13,7 @@ if (process.env.NODE_ENV == 'production' && numCpus > 1 && cluster.isPrimary) {
     cluster.fork();
   }
 } else {
-  const serverOptions: ServerOptions = { keepAlive: true, keepAliveTimeout: 5 };
+  const serverOptions: ServerOptions = { keepAlive: true, keepAliveTimeout: 5000 };
   const app = await new Application().bootstrap(AppModule, { serverOptions });
   const port = checkCliAndSetPort(3000);
   app.server.listen(port, '0.0.0.0');
