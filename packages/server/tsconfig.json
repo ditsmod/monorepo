@@ -8,8 +8,6 @@
       "#src/*": ["./src/*"],
       "#routed/*": ["./src/app/modules/routed/*"],
       "#service/*": ["./src/app/modules/service/*"],
-      "#shared": ["../shared/src"],
-      "#shared/*": ["../shared/src/*"],
     }
   },
   "include": ["src", "test"],
