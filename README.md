@@ -27,6 +27,6 @@ npm start
 ## Start the web server in production mode
 
 ```bash
-yarn build
-yarn start-prod
+npm run build
+npm run start-prod
 ```
