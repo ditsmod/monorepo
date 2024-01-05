@@ -27,6 +27,5 @@ npm start
 ## Start the web server in production mode
 
 ```bash
-npm run build
 npm run start-prod
 ```
