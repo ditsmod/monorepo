@@ -12,7 +12,7 @@
     "lib": "src"
   },
   "scripts": {
-    "start": "node --enable-source-maps -r dotenv/config dist/main.js",
+    "start": "nodemon --enable-source-maps -r dotenv/config dist/main.js",
     "start-prod": "node -r dotenv/config dist/main.js",
     "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps ../../node_modules/jest/bin/jest.js",
     "test": "tsc -b tsconfig.test.json && npm run esm-jest",
@@ -29,7 +29,7 @@
   "dependencies": {
     "@ditsmod/body-parser": "^2.13.1",
     "@ditsmod/core": "^2.51.1",
-    "@ditsmod/routing": "^2.1.0",
+    "@ditsmod/routing": "^2.1.1",
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
