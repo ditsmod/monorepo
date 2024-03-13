@@ -5,7 +5,7 @@
     "noImplicitOverride": true,
     "baseUrl": ".",
     "paths": {
-      "#src/*": ["./src/*"],
+      "#app/*": ["./src/app/*"],
       "#routed/*": ["./src/app/modules/routed/*"],
       "#service/*": ["./src/app/modules/service/*"],
     }
