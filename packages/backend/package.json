@@ -12,7 +12,7 @@
     "lib": "src"
   },
   "scripts": {
-    "start": "nodemon --enable-source-maps -r dotenv/config dist/main.js",
+    "start": "npm run build && nodemon --enable-source-maps -r dotenv/config dist/main.js",
     "start-prod": "node -r dotenv/config dist/main.js",
     "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps ../../node_modules/jest/bin/jest.js",
     "test": "tsc -b tsconfig.test.json && npm run esm-jest",
