@@ -10,10 +10,10 @@ From start you need to do:
 npm install
 ```
 
-After that, copy `packages/server/.env-example` to `packages/server/.env`:
+After that, copy `packages/backend/.env-example` to `packages/backend/.env`:
 
 ```bash
-cp packages/server/.env-example packages/server/.env
+cp packages/backend/.env-example packages/backend/.env
 ```
 
 And fill this file.

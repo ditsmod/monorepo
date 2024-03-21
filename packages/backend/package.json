@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "author": "Your Name Here",
-  "name": "server",
+  "name": "backend",
   "description": "Ditsmod application",
   "version": "1.0.0",
   "engines": {

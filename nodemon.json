@@ -2,6 +2,6 @@
   "events": {
     "start": "clear"
   },
-  "watch": ["packages/server/dist"],
+  "watch": ["packages/backend/dist"],
   "ignore": ["*.spec.ts"]
 }

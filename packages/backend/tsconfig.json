@@ -11,5 +11,5 @@
     }
   },
   "include": ["src", "test"],
-  "references": [{ "path": "../shared/tsconfig.server.json" }]
+  "references": [{ "path": "../shared/tsconfig.backend.json" }]
 }
