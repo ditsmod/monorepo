@@ -2,11 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist/client",
+    "outDir": "dist/frontend",
     "target": "es2015",
     "module": "es2015",
     "moduleResolution": "node",
-    "tsBuildInfoFile": "dist/client/client.tsbuildinfo",
+    "tsBuildInfoFile": "dist/frontend/frontend.tsbuildinfo",
   },
   "include": ["src"]
 }

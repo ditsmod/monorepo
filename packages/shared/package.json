@@ -8,17 +8,17 @@
   "exports": {
     ".": {
       "import": "./dist/backend/index.js",
-      "require": "./dist/client/index.js",
-      "default": "./dist/client/index.js"
+      "require": "./dist/frontend/index.js",
+      "default": "./dist/frontend/index.js"
     },
     "./markdown": {
       "import": "./dist/backend/markdown.js",
-      "require": "./dist/client/markdown.js",
+      "require": "./dist/frontend/markdown.js",
       "default": "./dist/backend/markdown.js"
     }
   },
   "scripts": {
-    "build": "tsc -b tsconfig.backend.json && tsc -b tsconfig.client.json",
+    "build": "tsc -b tsconfig.backend.json && tsc -b tsconfig.frontend.json",
     "clean": "rimraf dist*"
   },
   "keywords": [],
