@@ -7,12 +7,12 @@ import { AppModule } from '#app/app.module.js';
 
 describe('01-hello-world', () => {
   let server: NodeServer;
-  let superTest: ReturnType<typeof request>;
+  let testAgent: ReturnType<typeof request>;
 
   beforeAll(async () => {
     jest.restoreAllMocks();
     server = await new TestApplication(AppModule, { path: 'api' }).getServer();
-    superTest = request(server);
+    testAgent = request(server);
   });
 
   afterAll(() => {
@@ -20,10 +20,10 @@ describe('01-hello-world', () => {
   });
 
   it('controller works', async () => {
-    await superTest.get('/api/hello').expect(200).expect('Hello World!');
+    await testAgent.get('/api/hello').expect(200).expect('Hello World!');
   });
 
   it('controller as singleton works', async () => {
-    await superTest.get('/api/hello2').expect(200).expect('Hello World!');
+    await testAgent.get('/api/hello2').expect(200).expect('Hello World!');
   });
 });
