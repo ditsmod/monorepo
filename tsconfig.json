@@ -18,6 +18,5 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false
-  },
-  "exclude": [ "**/node_modules/*"]
+  }
 }

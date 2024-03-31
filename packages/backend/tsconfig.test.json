@@ -1,6 +1,7 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
+    "noEmit": false,
     "noImplicitOverride": true,
     "outDir": "dist-test",
     "rootDir": "test",
