@@ -1,0 +1,12 @@
+.gitignore
+test
+dist-test
+tslint.json
+.prettierrc
+*.tgz
+*.log
+*.spec.*
+jest.config.ts
+*.tsbuildinfo
+tsconfig.test.json
+tsconfig.unit.json

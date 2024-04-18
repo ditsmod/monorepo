@@ -1,0 +1,36 @@
+{
+  "name": "@your-scope/package1",
+  "type": "module",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-projects/you-repo.git"
+  },
+  "description": "Description for Ditsmod applications",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "directories": {
+    "lib": "src"
+  },
+  "scripts": {
+    "build": "tsc -b tsconfig.build.json",
+    "clean": "rm -rf dist*",
+    "test": "tsc -b tsconfig.test.json && yarn esm-jest",
+    "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps ../../node_modules/jest/bin/jest.js"
+  },
+  "keywords": [
+    "ditsmod"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "@ditsmod/core": "^2.52.0"
+  }
+}

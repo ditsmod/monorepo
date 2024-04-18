@@ -9,12 +9,15 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "tsc -b apps/tsconfig.test.json && npm run esm-jest",
+    "test-apps": "tsc -b apps/tsconfig.test.json && npm run esm-jest",
+    "test-packages": "tsc -b packages/tsconfig.test.json && npm run esm-jest",
+    "test-all": "npm run test-packages && npm run test-apps",
     "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps node_modules/jest/bin/jest.js",
-    "start": "npm run build && nodemon --enable-source-maps -r dotenv/config apps/backend/dist/main.js dotenv_config_path=apps/backend/.env",
+    "start": "npm run build-packages && npm run build-apps && nodemon --enable-source-maps -r dotenv/config apps/backend/dist/main.js dotenv_config_path=apps/backend/.env",
     "start-prod": "node -r dotenv/config apps/backend/dist/main.js dotenv_config_path=apps/backend/.env",
-    "build": "tsc -b apps/tsconfig.json",
-    "watch": "npm run build -- --watch",
+    "build-apps": "tsc -b apps/tsconfig.json",
+    "build-packages": "tsc -b packages/tsconfig.json",
+    "watch": "npm run build-apps -- --watch",
     "clean": "rimraf apps/*/dist*"
   },
   "devDependencies": {
