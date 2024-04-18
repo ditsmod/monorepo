@@ -2,7 +2,7 @@
 
 This monorepository includes [Ditsmod](https://ditsmod.github.io/en/) applications seed.
 
-All packages are located in `packages/*`.
+All applications are located in `apps/*`.
 
 From start you need to do:
 
@@ -10,10 +10,10 @@ From start you need to do:
 npm install
 ```
 
-After that, copy `packages/backend/.env-example` to `packages/backend/.env`:
+After that, copy `apps/backend/.env-example` to `apps/backend/.env`:
 
 ```bash
-cp packages/backend/.env-example packages/backend/.env
+cp apps/backend/.env-example apps/backend/.env
 ```
 
 And fill this file.
