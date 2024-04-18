@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "description": "Starter for monorepositories",
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
     "test": "tsc -b apps/tsconfig.test.json && npm run esm-jest",
