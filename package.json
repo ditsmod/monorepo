@@ -17,9 +17,9 @@
     "clean": "rimraf apps/*/dist*"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.6",
+    "@types/eslint": "^8.56.9",
     "@types/jest": "^29.5.12",
-    "@types/node": "^18.19.28",
+    "@types/node": "^18.19.31",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.57.0",
@@ -28,6 +28,6 @@
     "prettier": "^2.8.8",
     "rimraf": "^4.4.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   }
 }
