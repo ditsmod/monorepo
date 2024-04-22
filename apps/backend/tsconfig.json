@@ -6,6 +6,7 @@
       "#app/*": ["./src/app/*"],
       "#routed/*": ["./src/app/modules/routed/*"],
       "#service/*": ["./src/app/modules/service/*"],
+      "@your-scope/package1": ["../../packages/packge1/src/index.js"],
     },
 
     "module": "nodenext",
@@ -28,5 +29,8 @@
     "removeComments": false
   },
   "include": ["src", "test"],
-  "references": [{ "path": "../shared/tsconfig.backend.json" }]
+  "references": [
+    { "path": "../shared/tsconfig.backend.json" },
+    { "path": "../../packages/package1/tsconfig.build.json" },
+  ]
 }

@@ -11,5 +11,8 @@
   "include": ["src"],
   "exclude": ["src/**/*.spec.ts"],
   "files": [],
-  "references": [{ "path": "../shared/tsconfig.backend.json" }]
+  "references": [
+    { "path": "../shared/tsconfig.backend.json" },
+    { "path": "../../packages/package1/tsconfig.build.json" },
+  ]
 }
