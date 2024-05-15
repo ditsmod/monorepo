@@ -5,16 +5,13 @@
   "name": "backend",
   "description": "Ditsmod application",
   "version": "1.0.0",
-  "engines": {
-    "node": ">= 18.14.0"
-  },
   "directories": {
     "lib": "src"
   },
   "scripts": {
-    "start": "npm run build && nodemon --enable-source-maps -r dotenv/config dist/main.js",
-    "start-prod": "node -r dotenv/config dist/main.js",
-    "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps ../../node_modules/jest/bin/jest.js",
+    "start": "npm run build && nodemon --enable-source-maps --env-file=.env dist/main.js",
+    "start-prod": "node --env-file=.env dist/main.js",
+    "esm-jest": "node --env-file=.env --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps ../../node_modules/jest/bin/jest.js",
     "test": "tsc -b tsconfig.test.json && npm run esm-jest",
     "build": "tsc -b tsconfig.build.json",
     "watch": "npm run build -- --watch",
@@ -29,12 +26,14 @@
   "dependencies": {
     "@ditsmod/body-parser": "^2.13.1",
     "@ditsmod/core": "^2.52.0",
-    "@ditsmod/routing": "^2.2.0",
-    "dotenv": "^16.4.5"
+    "@ditsmod/routing": "^2.2.0"
   },
   "devDependencies": {
     "@ditsmod/testing": "^2.8.0",
     "@types/supertest": "^6.0.2",
     "supertest": "^6.3.4"
+  },
+  "engines": {
+    "node": ">= 20.6.0"
   }
 }

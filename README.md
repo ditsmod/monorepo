@@ -2,6 +2,10 @@
 
 This monorepository includes [Ditsmod](https://ditsmod.github.io/en/) applications seed.
 
+## Prerequisites
+
+Please make sure that Node.js >= v20.6.0 is installed on your operating system.
+
 All applications are located in `apps/*`.
 
 From start you need to do:
