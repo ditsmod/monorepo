@@ -27,13 +27,13 @@
     "#service/*": "./dist/app/modules/service/*"
   },
   "dependencies": {
-    "@ditsmod/body-parser": "^2.13.1",
-    "@ditsmod/core": "^2.52.0",
+    "@ditsmod/body-parser": "^2.15.0",
+    "@ditsmod/core": "^2.53.1",
     "@ditsmod/routing": "^2.2.0",
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "@ditsmod/testing": "^2.8.0",
+    "@ditsmod/testing": "^2.9.0",
     "@types/supertest": "^6.0.2",
     "supertest": "^6.3.4"
   }
