@@ -14,20 +14,21 @@
     "start-prod": "node -r dotenv/config apps/backend/dist/main.js dotenv_config_path=apps/backend/.env",
     "build": "tsc -b apps/tsconfig.json",
     "watch": "npm run build -- --watch",
+    "lint": "eslint .",
     "clean": "rimraf apps/*/dist*"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.11",
+    "@eslint/js": "^9.8.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.12",
-    "@types/node": "^18.19.42",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
+    "@types/node": "^18.19.43",
     "eslint": "^8.57.0",
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
     "prettier": "^2.8.8",
     "rimraf": "^4.4.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.0"
   }
 }
