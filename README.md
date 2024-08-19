@@ -30,6 +30,16 @@ npm run watch
 npm start
 ```
 
+You can check the server operation using `curl`:
+
+```bash
+curl -i localhost:3000/api/hello
+```
+
+Or simply by going to [http://localhost:3000/api/hello](http://localhost:3000/api/hello) in your browser.
+
+By default, the application works with `debug` log level. You can change it in the file `apps/backend/src/app/app.module.ts`.
+
 ## Start the web server in production mode
 
 ```bash
