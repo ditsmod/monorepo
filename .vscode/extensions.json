@@ -1,3 +1,8 @@
 {
-  "recommendations": ["dbaeumer.vscode-eslint"]
+  "recommendations": [
+    // ESLint/Prettier formatter
+    "esbenp.prettier-vscode",
+    // ESLint support to VSCode
+    "dbaeumer.vscode-eslint",
+  ]
 }
