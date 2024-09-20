@@ -5,7 +5,7 @@ import { BodyParserModule } from '@ditsmod/body-parser';
 import { HelloWorldModule } from './modules/routed/hello-world/hello-world.module.js';
 
 @rootModule({
-  providersPerApp: new Providers().useLogConfig({ level: 'debug' }),
+  providersPerApp: new Providers().useLogConfig({ level: 'info' }),
   appends: [HelloWorldModule],
   imports: [RoutingModule, BodyParserModule],
   exports: [RoutingModule, BodyParserModule],

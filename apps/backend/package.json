@@ -27,9 +27,9 @@
     "#service/*": "./dist/app/modules/service/*"
   },
   "dependencies": {
-    "@ditsmod/body-parser": "^2.17.0",
-    "@ditsmod/core": "^2.56.0",
-    "@ditsmod/routing": "^2.4.0",
+    "@ditsmod/body-parser": "^2.17.1",
+    "@ditsmod/core": "^2.56.1",
+    "@ditsmod/routing": "^2.4.1",
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
