@@ -10,7 +10,7 @@
   "scripts": {
     "test": "tsc -b apps/tsconfig.test.json && npm run esm-jest",
     "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps node_modules/jest/bin/jest.js",
-    "start": "npm run build && nodemon --enable-source-maps -r dotenv/config apps/backend/dist/main.js dotenv_config_path=apps/backend/.env",
+    "start": "npm run build && node --watch --enable-source-maps -r dotenv/config apps/backend/dist/main.js dotenv_config_path=apps/backend/.env",
     "start-prod": "node -r dotenv/config apps/backend/dist/main.js dotenv_config_path=apps/backend/.env",
     "build": "tsc -b apps/tsconfig.json",
     "watch": "npm run build -- --watch",
@@ -24,7 +24,6 @@
     "@types/node": "^18.19.50",
     "eslint": "^8.57.0",
     "jest": "^29.7.0",
-    "nodemon": "^3.1.4",
     "prettier": "^2.8.8",
     "rimraf": "^4.4.1",
     "ts-node": "^10.9.2",

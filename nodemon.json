@@ -1,7 +1,0 @@
-{
-  "events": {
-    "start": "clear"
-  },
-  "watch": ["apps/backend/dist"],
-  "ignore": ["*.spec.ts"]
-}
