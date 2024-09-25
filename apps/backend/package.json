@@ -13,6 +13,7 @@
   },
   "scripts": {
     "start": "npm run build && node --watch --enable-source-maps -r dotenv/config dist/main.js",
+    "start:dev": "concurrently -r 'npm:watch' 'npm:start'",
     "start-prod": "node -r dotenv/config dist/main.js",
     "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps ../../node_modules/jest/bin/jest.js",
     "test": "tsc -b tsconfig.test.json && npm run esm-jest",

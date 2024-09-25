@@ -21,13 +21,7 @@ And fill this file.
 ## Start the web server in develop mode
 
 ```bash
-# From first terminal.
-# This compiles TS to JS.
-npm run watch
-
-# From second terminal.
-# This starts the web server and restarts when changes are made.
-npm start
+npm run start:dev
 ```
 
 You can check the server operation using `curl`:
@@ -38,7 +32,7 @@ curl -i localhost:3000/api/hello
 
 Or simply by going to [http://localhost:3000/api/hello](http://localhost:3000/api/hello) in your browser.
 
-By default, the application works with `debug` log level. You can change it in the file `apps/backend/src/app/app.module.ts`.
+By default, the application works with `info` log level. You can change it in the file `apps/backend/src/app/app.module.ts`.
 
 ## Start the web server in production mode
 
