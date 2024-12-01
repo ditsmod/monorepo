@@ -1,0 +1,6 @@
+{
+  "files": [],
+  "references": [
+    { "path": "backend/tsconfig.e2e.json" },
+  ]
+}

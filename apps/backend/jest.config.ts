@@ -10,7 +10,7 @@ if (output.error) {
 
 const config: Config = {
   testEnvironment: 'node',
-  modulePathIgnorePatterns: ['<rootDir>/src/', '<rootDir>/test/'],
+  modulePathIgnorePatterns: ['<rootDir>/src/', '<rootDir>/e2e/'],
 };
 
 export default config;

@@ -3,12 +3,12 @@
   "compilerOptions": {
     "noEmit": false,
     "noImplicitOverride": true,
-    "outDir": "dist-test",
-    "rootDir": "test",
-    "tsBuildInfoFile": "dist-test/test.tsbuildinfo",
+    "outDir": "dist-e2e",
+    "rootDir": "e2e",
+    "tsBuildInfoFile": "dist-e2e/e2e.tsbuildinfo",
     "baseUrl": "."
   },
-  "include": ["test"],
+  "include": ["e2e"],
   "files": [],
   "references": [
     { "path": "./tsconfig.build.json" },

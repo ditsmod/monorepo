@@ -16,7 +16,7 @@
     "start:dev": "concurrently -r 'npm:watch' 'npm:start'",
     "start-prod": "node -r dotenv/config dist/main.js",
     "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning --enable-source-maps ../../node_modules/jest/bin/jest.js",
-    "test": "tsc -b tsconfig.test.json && npm run esm-jest",
+    "test": "tsc -b tsconfig.e2e.json && npm run esm-jest",
     "build": "tsc -b tsconfig.build.json",
     "watch": "npm run build -- --watch",
     "clean": "rimraf dist*",
