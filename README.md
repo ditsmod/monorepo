@@ -1,6 +1,6 @@
 ## About the project
 
-This monorepository includes [Ditsmod](https://ditsmod.github.io/en/) applications seed.
+This monorepository includes [Ditsmod](https://ditsmod.github.io/en/) applications starter.
 
 All applications are located in `apps/*`.
 
