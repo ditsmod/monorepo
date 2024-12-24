@@ -27,6 +27,6 @@
     "experimentalDecorators": true,
     "removeComments": false
   },
-  "include": ["src", "test"],
+  "include": ["src", "e2e"],
   "references": [{ "path": "../shared/tsconfig.backend.json" }]
 }
