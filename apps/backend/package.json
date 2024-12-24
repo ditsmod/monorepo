@@ -31,7 +31,7 @@
     "@ditsmod/body-parser": "^3.0.0-alpha.2",
     "@ditsmod/core": "^3.0.0-alpha.2",
     "@ditsmod/routing": "^3.0.0-alpha.2",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "@ditsmod/testing": "^3.0.0-alpha.2",
