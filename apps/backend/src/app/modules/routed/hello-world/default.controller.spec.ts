@@ -1,11 +1,11 @@
 import { Injector, Res } from '@ditsmod/core';
-import { jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { DefaultController } from './default.controller.js';
 
 describe('DefaultController', () => {
-  const send = jest.fn();
-  const sendJson = jest.fn();
+  const send = vi.fn();
+  const sendJson = vi.fn();
   const res = { send, sendJson } as unknown as Res;
   let defaultController: DefaultController;
 
