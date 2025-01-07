@@ -1,15 +1,15 @@
-import { controller, RequestContext, SingletonRequestContext } from '@ditsmod/core';
+import { controller, RequestContext } from '@ditsmod/core';
 import { route } from '@ditsmod/routing';
 
-@controller({ scope: 'module' })
-export class SingletonController {
+@controller({ scope: 'ctx' })
+export class CtxScopedController {
   @route('GET', 'hello2')
   tellHello(ctx: RequestContext) {
     ctx.send('Hello World!');
   }
 
   @route('POST', 'body2')
-  postHello(ctx: SingletonRequestContext) {
+  postHello(ctx: RequestContext) {
     ctx.sendJson(ctx.body);
   }
 

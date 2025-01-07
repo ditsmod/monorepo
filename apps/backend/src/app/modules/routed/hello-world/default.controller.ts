@@ -3,7 +3,7 @@ import { controller, inject, Res } from '@ditsmod/core';
 import { route } from '@ditsmod/routing';
 
 @controller()
-export class DefaultController {
+export class InjScopedController {
   @route('GET', 'hello')
   tellHello(res: Res) {
     res.send('Hello World!');
