@@ -1,8 +1,21 @@
+import { parseArgs } from 'node:util';
+
+const options = {
+  port: {
+    type: 'string',
+    short: 'p',
+  },
+} as const;
+
 /**
  * First, it checks the CLI parameter `--port`, if it does not exist,
- * it returns the default value passed in the parameters `defaultPort` of this function.
+ * it returns the default value passed in the parameters `port` of this function.
  */
-export function checkCliAndSetPort(defaultPort: number = 3000): number {
-  const portParamIndex = process.argv.findIndex(v => v == '--port');
-  return portParamIndex === -1 ? defaultPort : Number(process.argv[portParamIndex + 1]);
+export function checkCliAndSetPort(port: number = 3000): number {
+  const { values } = parseArgs({ options, strict: false });
+  if (values.port) {
+    port = Number(values.port);
+  }
+
+  return port;
 }
