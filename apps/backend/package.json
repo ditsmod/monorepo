@@ -31,11 +31,11 @@
     "@ditsmod/body-parser": "^3.0.0-alpha.3",
     "@ditsmod/core": "^3.0.0-alpha.3",
     "@ditsmod/routing": "^3.0.0-alpha.3",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.6.1"
   },
   "devDependencies": {
     "@ditsmod/testing": "^3.0.0-alpha.3",
-    "@types/supertest": "^6.0.2",
+    "@types/supertest": "^6.0.3",
     "supertest": "^6.3.4"
   }
 }
